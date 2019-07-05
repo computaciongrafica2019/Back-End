@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CG2019ModelStoreContainer" CdmEntityContainer="CG2019Entities">
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="CG2019Model.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cotizacion">
+      <EntityTypeMapping TypeName="CG2019Model.Cotizacion">
+        <MappingFragment StoreEntitySet="Cotizacion">
+          <ScalarProperty Name="idOrden" ColumnName="idOrden" />
+          <ScalarProperty Name="docuentoExcelProp" ColumnName="docuentoExcelProp" />
+          <ScalarProperty Name="PDF" ColumnName="PDF" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+          <ScalarProperty Name="fechaeEntrega" ColumnName="fechaeEntrega" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="idMueble" ColumnName="idMueble" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mueble">
+      <EntityTypeMapping TypeName="CG2019Model.Mueble">
+        <MappingFragment StoreEntitySet="Mueble">
+          <ScalarProperty Name="idMueble" ColumnName="idMueble" />
+          <ScalarProperty Name="alto" ColumnName="alto" />
+          <ScalarProperty Name="largo" ColumnName="largo" />
+          <ScalarProperty Name="profundidad" ColumnName="profundidad" />
+          <ScalarProperty Name="alfoF" ColumnName="alfoF" />
+          <ScalarProperty Name="docuentoExcelProp" ColumnName="docuentoExcelProp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

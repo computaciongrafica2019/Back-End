@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CG2019Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="correoElectronico" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="nombres" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="apellidos" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="20" />
+          <Property Name="fechaCreacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cotizacion">
+          <Key>
+            <PropertyRef Name="idOrden" />
+          </Key>
+          <Property Name="idOrden" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="docuentoExcelProp" Type="varchar" MaxLength="320" Nullable="false" />
+          <Property Name="PDF" Type="varchar" MaxLength="320" />
+          <Property Name="estado" Type="varchar" MaxLength="10" />
+          <Property Name="fechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="fechaeEntrega" Type="datetime" Nullable="false" />
+          <Property Name="idCliente" Type="int" Nullable="false" />
+          <Property Name="idMueble" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mueble">
+          <Key>
+            <PropertyRef Name="idMueble" />
+          </Key>
+          <Property Name="idMueble" Type="int" Nullable="false" />
+          <Property Name="alto" Type="int" Nullable="false" />
+          <Property Name="largo" Type="int" Nullable="false" />
+          <Property Name="profundidad" Type="int" Nullable="false" />
+          <Property Name="alfoF" Type="int" Nullable="false" />
+          <Property Name="docuentoExcelProp" Type="varchar" MaxLength="320" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Cotizacio__idMue__3C69FB99">
+          <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mueble">
+              <PropertyRef Name="idMueble" />
+            </Principal>
+            <Dependent Role="Cotizacion">
+              <PropertyRef Name="idMueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cotizacio__idOrd__3B75D760">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Cotizacion">
+              <PropertyRef Name="idOrden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CG2019ModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mueble" EntityType="Self.Mueble" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cotizacio__idMue__3C69FB99" Association="Self.FK__Cotizacio__idMue__3C69FB99">
+            <End Role="Mueble" EntitySet="Mueble" />
+            <End Role="Cotizacion" EntitySet="Cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cotizacio__idOrd__3B75D760" Association="Self.FK__Cotizacio__idOrd__3B75D760">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Cotizacion" EntitySet="Cotizacion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CG2019Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="correoElectronico" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombres" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Cotizacio__idOrd__3B75D760" FromRole="Cliente" ToRole="Cotizacion" />
+        </EntityType>
+        <EntityType Name="Cotizacion">
+          <Key>
+            <PropertyRef Name="idOrden" />
+          </Key>
+          <Property Name="idOrden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="docuentoExcelProp" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PDF" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaeEntrega" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="idCliente" Type="Int32" Nullable="false" />
+          <Property Name="idMueble" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Cotizacio__idOrd__3B75D760" FromRole="Cotizacion" ToRole="Cliente" />
+          <NavigationProperty Name="Mueble" Relationship="Self.FK__Cotizacio__idMue__3C69FB99" FromRole="Cotizacion" ToRole="Mueble" />
+        </EntityType>
+        <EntityType Name="Mueble">
+          <Key>
+            <PropertyRef Name="idMueble" />
+          </Key>
+          <Property Name="idMueble" Type="Int32" Nullable="false" />
+          <Property Name="alto" Type="Int32" Nullable="false" />
+          <Property Name="largo" Type="Int32" Nullable="false" />
+          <Property Name="profundidad" Type="Int32" Nullable="false" />
+          <Property Name="alfoF" Type="Int32" Nullable="false" />
+          <Property Name="docuentoExcelProp" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Cotizacio__idMue__3C69FB99" FromRole="Mueble" ToRole="Cotizacion" />
+        </EntityType>
+        <Association Name="FK__Cotizacio__idOrd__3B75D760">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Cotizacion">
+              <PropertyRef Name="idOrden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cotizacio__idMue__3C69FB99">
+          <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mueble">
+              <PropertyRef Name="idMueble" />
+            </Principal>
+            <Dependent Role="Cotizacion">
+              <PropertyRef Name="idMueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CG2019Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" />
+          <EntitySet Name="Mueble" EntityType="Self.Mueble" />
+          <AssociationSet Name="FK__Cotizacio__idOrd__3B75D760" Association="Self.FK__Cotizacio__idOrd__3B75D760">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Cotizacion" EntitySet="Cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cotizacio__idMue__3C69FB99" Association="Self.FK__Cotizacio__idMue__3C69FB99">
+            <End Role="Mueble" EntitySet="Mueble" />
+            <End Role="Cotizacion" EntitySet="Cotizacion" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CG2019ModelStoreContainer" CdmEntityContainer="CG2019Entities">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="CG2019Model.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cotizacion">
+            <EntityTypeMapping TypeName="CG2019Model.Cotizacion">
+              <MappingFragment StoreEntitySet="Cotizacion">
+                <ScalarProperty Name="idOrden" ColumnName="idOrden" />
+                <ScalarProperty Name="docuentoExcelProp" ColumnName="docuentoExcelProp" />
+                <ScalarProperty Name="PDF" ColumnName="PDF" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="fechaeEntrega" ColumnName="fechaeEntrega" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="idMueble" ColumnName="idMueble" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mueble">
+            <EntityTypeMapping TypeName="CG2019Model.Mueble">
+              <MappingFragment StoreEntitySet="Mueble">
+                <ScalarProperty Name="idMueble" ColumnName="idMueble" />
+                <ScalarProperty Name="alto" ColumnName="alto" />
+                <ScalarProperty Name="largo" ColumnName="largo" />
+                <ScalarProperty Name="profundidad" ColumnName="profundidad" />
+                <ScalarProperty Name="alfoF" ColumnName="alfoF" />
+                <ScalarProperty Name="docuentoExcelProp" ColumnName="docuentoExcelProp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
