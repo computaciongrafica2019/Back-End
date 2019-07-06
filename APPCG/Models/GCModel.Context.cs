@@ -13,10 +13,10 @@ namespace APPCG.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CG2019Entities : DbContext
+    public partial class CG2019 : DbContext
     {
-        public CG2019Entities()
-            : base("name=CG2019Entities")
+        public CG2019()
+            : base("name=CG2019")
         {
         }
     
@@ -25,6 +25,9 @@ namespace APPCG.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AtributoLavadero> AtributoLavadero { get; set; }
+        public virtual DbSet<AtributoLino> AtributoLino { get; set; }
+        public virtual DbSet<AtributoMuebleTV> AtributoMuebleTV { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Cotizacion> Cotizacion { get; set; }
         public virtual DbSet<Mueble> Mueble { get; set; }

@@ -1,79 +1,170 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="CG2019Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Cliente">
-    <Key>
-      <PropertyRef Name="idCliente" />
-    </Key>
-    <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="correoElectronico" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="nombres" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Cotizacio__idOrd__3B75D760" FromRole="Cliente" ToRole="Cotizacion" />
-  </EntityType>
-  <EntityType Name="Cotizacion">
-    <Key>
-      <PropertyRef Name="idOrden" />
-    </Key>
-    <Property Name="idOrden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="docuentoExcelProp" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="PDF" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
-    <Property Name="estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="fechaeEntrega" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="idCliente" Type="Int32" Nullable="false" />
-    <Property Name="idMueble" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Cliente" Relationship="Self.FK__Cotizacio__idOrd__3B75D760" FromRole="Cotizacion" ToRole="Cliente" />
-    <NavigationProperty Name="Mueble" Relationship="Self.FK__Cotizacio__idMue__3C69FB99" FromRole="Cotizacion" ToRole="Mueble" />
-  </EntityType>
-  <EntityType Name="Mueble">
+  <EntityContainer Name="CG2019Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AtributoLavadero" EntityType="CG2019Model.AtributoLavadero" />
+    <EntitySet Name="AtributoLino" EntityType="CG2019Model.AtributoLino" />
+    <EntitySet Name="AtributoMuebleTV" EntityType="CG2019Model.AtributoMuebleTV" />
+    <EntitySet Name="Cliente" EntityType="CG2019Model.Cliente" />
+    <EntitySet Name="Cotizacion" EntityType="CG2019Model.Cotizacion" />
+    <EntitySet Name="Mueble" EntityType="CG2019Model.Mueble" />
+    <AssociationSet Name="FK__AtributoL__color__5629CD9C" Association="CG2019Model.FK__AtributoL__color__5629CD9C">
+      <End Role="Mueble" EntitySet="Mueble" />
+      <End Role="AtributoLavadero" EntitySet="AtributoLavadero" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AtributoL__color__5FB337D6" Association="CG2019Model.FK__AtributoL__color__5FB337D6">
+      <End Role="Mueble" EntitySet="Mueble" />
+      <End Role="AtributoLino" EntitySet="AtributoLino" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AtributoM__entre__693CA210" Association="CG2019Model.FK__AtributoM__entre__693CA210">
+      <End Role="Mueble" EntitySet="Mueble" />
+      <End Role="AtributoMuebleTV" EntitySet="AtributoMuebleTV" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cotizacio__corre__4CA06362" Association="CG2019Model.FK__Cotizacio__corre__4CA06362">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Cotizacion" EntitySet="Cotizacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mueble__idOrden__4F7CD00D" Association="CG2019Model.FK__Mueble__idOrden__4F7CD00D">
+      <End Role="Cotizacion" EntitySet="Cotizacion" />
+      <End Role="Mueble" EntitySet="Mueble" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AtributoLavadero">
     <Key>
       <PropertyRef Name="idMueble" />
     </Key>
     <Property Name="idMueble" Type="Int32" Nullable="false" />
     <Property Name="alto" Type="Int32" Nullable="false" />
     <Property Name="largo" Type="Int32" Nullable="false" />
-    <Property Name="profundidad" Type="Int32" Nullable="false" />
-    <Property Name="alfoF" Type="Int32" Nullable="false" />
-    <Property Name="docuentoExcelProp" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Cotizacion" Relationship="Self.FK__Cotizacio__idMue__3C69FB99" FromRole="Mueble" ToRole="Cotizacion" />
+    <Property Name="ancho" Type="Int32" Nullable="false" />
+    <Property Name="color" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mueble" Relationship="CG2019Model.FK__AtributoL__color__5629CD9C" FromRole="AtributoLavadero" ToRole="Mueble" />
   </EntityType>
-  <Association Name="FK__Cotizacio__idOrd__3B75D760">
-    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Cliente">
-        <PropertyRef Name="idCliente" />
-      </Principal>
-      <Dependent Role="Cotizacion">
-        <PropertyRef Name="idOrden" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Cotizacio__idMue__3C69FB99">
-    <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
-    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+  <EntityType Name="AtributoLino">
+    <Key>
+      <PropertyRef Name="idMueble" />
+    </Key>
+    <Property Name="idMueble" Type="Int32" Nullable="false" />
+    <Property Name="alto" Type="Int32" Nullable="false" />
+    <Property Name="largo" Type="Int32" Nullable="false" />
+    <Property Name="ancho" Type="Int32" Nullable="false" />
+    <Property Name="entrepañosC1" Type="Int32" Nullable="false" />
+    <Property Name="entrepañosC2" Type="Int32" Nullable="false" />
+    <Property Name="colorBase" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="colorTabla" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mueble" Relationship="CG2019Model.FK__AtributoL__color__5FB337D6" FromRole="AtributoLino" ToRole="Mueble" />
+  </EntityType>
+  <EntityType Name="AtributoMuebleTV">
+    <Key>
+      <PropertyRef Name="idMueble" />
+    </Key>
+    <Property Name="idMueble" Type="Int32" Nullable="false" />
+    <Property Name="alto" Type="Int32" Nullable="false" />
+    <Property Name="largo" Type="Int32" Nullable="false" />
+    <Property Name="ancho" Type="Int32" Nullable="false" />
+    <Property Name="colorBase" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="numSeparaciones" Type="Int32" Nullable="false" />
+    <Property Name="numSepacionesConPuerta" Type="Int32" Nullable="false" />
+    <Property Name="entrepaños" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Mueble" Relationship="CG2019Model.FK__AtributoM__entre__693CA210" FromRole="AtributoMuebleTV" ToRole="Mueble" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="correoElectronico" />
+    </Key>
+    <Property Name="correoElectronico" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="nombreUsuario" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="contraseña" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="nombres" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="apellidos" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="Decimal" Precision="20" Scale="0" />
+    <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Cotizacion" Relationship="CG2019Model.FK__Cotizacio__corre__4CA06362" FromRole="Cliente" ToRole="Cotizacion" />
+  </EntityType>
+  <EntityType Name="Cotizacion">
+    <Key>
+      <PropertyRef Name="idOrden" />
+    </Key>
+    <Property Name="idOrden" Type="Int32" Nullable="false" />
+    <Property Name="documentoExcelProp" Type="String" Nullable="false" MaxLength="320" FixedLength="false" Unicode="false" />
+    <Property Name="PDF" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fechaeEntrega" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="correoCliente" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="idMueble" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="CG2019Model.FK__Cotizacio__corre__4CA06362" FromRole="Cotizacion" ToRole="Cliente" />
+    <NavigationProperty Name="Mueble" Relationship="CG2019Model.FK__Mueble__idOrden__4F7CD00D" FromRole="Cotizacion" ToRole="Mueble" />
+  </EntityType>
+  <EntityType Name="Mueble">
+    <Key>
+      <PropertyRef Name="idMueble" />
+    </Key>
+    <Property Name="idMueble" Type="Int32" Nullable="false" />
+    <Property Name="documentoExcelProp" Type="String" Nullable="false" MaxLength="320" FixedLength="false" Unicode="false" />
+    <Property Name="idOrden" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AtributoLavadero" Relationship="CG2019Model.FK__AtributoL__color__5629CD9C" FromRole="Mueble" ToRole="AtributoLavadero" />
+    <NavigationProperty Name="AtributoLino" Relationship="CG2019Model.FK__AtributoL__color__5FB337D6" FromRole="Mueble" ToRole="AtributoLino" />
+    <NavigationProperty Name="AtributoMuebleTV" Relationship="CG2019Model.FK__AtributoM__entre__693CA210" FromRole="Mueble" ToRole="AtributoMuebleTV" />
+    <NavigationProperty Name="Cotizacion" Relationship="CG2019Model.FK__Mueble__idOrden__4F7CD00D" FromRole="Mueble" ToRole="Cotizacion" />
+  </EntityType>
+  <Association Name="FK__AtributoL__color__5629CD9C">
+    <End Type="CG2019Model.Mueble" Role="Mueble" Multiplicity="1" />
+    <End Type="CG2019Model.AtributoLavadero" Role="AtributoLavadero" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Mueble">
         <PropertyRef Name="idMueble" />
       </Principal>
-      <Dependent Role="Cotizacion">
+      <Dependent Role="AtributoLavadero">
         <PropertyRef Name="idMueble" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="CG2019Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
-    <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" />
-    <EntitySet Name="Mueble" EntityType="Self.Mueble" />
-    <AssociationSet Name="FK__Cotizacio__idOrd__3B75D760" Association="Self.FK__Cotizacio__idOrd__3B75D760">
-      <End Role="Cliente" EntitySet="Cliente" />
-      <End Role="Cotizacion" EntitySet="Cotizacion" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Cotizacio__idMue__3C69FB99" Association="Self.FK__Cotizacio__idMue__3C69FB99">
-      <End Role="Mueble" EntitySet="Mueble" />
-      <End Role="Cotizacion" EntitySet="Cotizacion" />
-    </AssociationSet>
-  </EntityContainer>
+  <Association Name="FK__AtributoL__color__5FB337D6">
+    <End Type="CG2019Model.Mueble" Role="Mueble" Multiplicity="1" />
+    <End Type="CG2019Model.AtributoLino" Role="AtributoLino" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Mueble">
+        <PropertyRef Name="idMueble" />
+      </Principal>
+      <Dependent Role="AtributoLino">
+        <PropertyRef Name="idMueble" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AtributoM__entre__693CA210">
+    <End Type="CG2019Model.Mueble" Role="Mueble" Multiplicity="1" />
+    <End Type="CG2019Model.AtributoMuebleTV" Role="AtributoMuebleTV" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Mueble">
+        <PropertyRef Name="idMueble" />
+      </Principal>
+      <Dependent Role="AtributoMuebleTV">
+        <PropertyRef Name="idMueble" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cotizacio__corre__4CA06362">
+    <End Type="CG2019Model.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="CG2019Model.Cotizacion" Role="Cotizacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="correoElectronico" />
+      </Principal>
+      <Dependent Role="Cotizacion">
+        <PropertyRef Name="correoCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mueble__idOrden__4F7CD00D">
+    <End Type="CG2019Model.Cotizacion" Role="Cotizacion" Multiplicity="1" />
+    <End Type="CG2019Model.Mueble" Role="Mueble" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cotizacion">
+        <PropertyRef Name="idOrden" />
+      </Principal>
+      <Dependent Role="Mueble">
+        <PropertyRef Name="idOrden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

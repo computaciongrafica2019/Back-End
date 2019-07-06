@@ -14,13 +14,21 @@ namespace APPCG.Models
     
     public partial class Cliente
     {
-        public int idCliente { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cliente()
+        {
+            this.Cotizacion = new HashSet<Cotizacion>();
+        }
+    
         public string correoElectronico { get; set; }
+        public string nombreUsuario { get; set; }
+        public string contraseña { get; set; }
         public string nombres { get; set; }
         public string apellidos { get; set; }
-        public string telefono { get; set; }
+        public Nullable<decimal> telefono { get; set; }
         public System.DateTime fechaCreacion { get; set; }
     
-        public virtual Cotizacion Cotizacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cotizacion> Cotizacion { get; set; }
     }
 }

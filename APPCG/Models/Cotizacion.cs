@@ -14,16 +14,23 @@ namespace APPCG.Models
     
     public partial class Cotizacion
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cotizacion()
+        {
+            this.Mueble = new HashSet<Mueble>();
+        }
+    
         public int idOrden { get; set; }
-        public string docuentoExcelProp { get; set; }
+        public string documentoExcelProp { get; set; }
         public string PDF { get; set; }
         public string estado { get; set; }
         public System.DateTime fechaCreacion { get; set; }
         public System.DateTime fechaeEntrega { get; set; }
-        public int idCliente { get; set; }
+        public string correoCliente { get; set; }
         public int idMueble { get; set; }
     
         public virtual Cliente Cliente { get; set; }
-        public virtual Mueble Mueble { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Mueble> Mueble { get; set; }
     }
 }
