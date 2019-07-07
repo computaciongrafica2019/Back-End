@@ -20,13 +20,14 @@ namespace APPCG.Models
             this.Cotizacion = new HashSet<Cotizacion>();
         }
     
-        public string correoElectronico { get; set; }
-        public string nombreUsuario { get; set; }
-        public string contraseña { get; set; }
-        public string nombres { get; set; }
-        public string apellidos { get; set; }
-        public Nullable<decimal> telefono { get; set; }
-        public System.DateTime fechaCreacion { get; set; }
+        public int IdCliente { get; set; }
+        public string CorreoElectronico { get; set; }
+        public string NombreUsuario { get; set; }
+        public string Contraseña { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
+        public decimal Telefono { get; set; }
+        public System.DateTime FechaCreacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cotizacion> Cotizacion { get; set; }

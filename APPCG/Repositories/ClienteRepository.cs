@@ -11,6 +11,31 @@ namespace APPCG.Repositories
     {
 
 
+        public IEnumerable<Cliente> GetAll()
+        {
+            IEnumerable<Cliente> clientes = null;
+
+            try
+            {
+
+                using (var db = new CG2019Entities())
+                {
+
+                    clientes = db.Cliente.ToList();
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return clientes;
+        }
+
+
+
         public Cliente GetCliente(String correoElectronico)
         {
 
@@ -19,10 +44,10 @@ namespace APPCG.Repositories
             try
             {
 
-                using (var db = new CG2019())
+                using (var db = new CG2019Entities())
                 {
 
-                    cliente = db.Cliente.Where(cli => cli.correoElectronico == correoElectronico).FirstOrDefault();
+                    cliente = db.Cliente.Where(cli => cli.CorreoElectronico == correoElectronico).FirstOrDefault();
 
                 }
 
@@ -45,7 +70,7 @@ namespace APPCG.Repositories
             try
             {
 
-                using (var db = new CG2019())
+                using (var db = new CG2019Entities())
                 {
 
                    db.Cliente.Add(cliente);

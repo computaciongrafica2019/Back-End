@@ -1,78 +1,121 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="CG2019ModelStoreContainer" CdmEntityContainer="CG2019Entities">
-    <EntitySetMapping Name="AtributoLavadero">
-      <EntityTypeMapping TypeName="CG2019Model.AtributoLavadero">
-        <MappingFragment StoreEntitySet="AtributoLavadero">
-          <ScalarProperty Name="color" ColumnName="color" />
-          <ScalarProperty Name="ancho" ColumnName="ancho" />
-          <ScalarProperty Name="largo" ColumnName="largo" />
-          <ScalarProperty Name="alto" ColumnName="alto" />
-          <ScalarProperty Name="idMueble" ColumnName="idMueble" />
+    <EntitySetMapping Name="AtributosLavadero">
+      <EntityTypeMapping TypeName="CG2019Model.AtributosLavadero">
+        <MappingFragment StoreEntitySet="AtributosLavadero">
+          <ScalarProperty Name="Valores" ColumnName="Valores" />
+          <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+          <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AtributoLino">
-      <EntityTypeMapping TypeName="CG2019Model.AtributoLino">
-        <MappingFragment StoreEntitySet="AtributoLino">
-          <ScalarProperty Name="colorTabla" ColumnName="colorTabla" />
-          <ScalarProperty Name="colorBase" ColumnName="colorBase" />
-          <ScalarProperty Name="entrepañosC2" ColumnName="entrepañosC2" />
-          <ScalarProperty Name="entrepañosC1" ColumnName="entrepañosC1" />
-          <ScalarProperty Name="ancho" ColumnName="ancho" />
-          <ScalarProperty Name="largo" ColumnName="largo" />
-          <ScalarProperty Name="alto" ColumnName="alto" />
-          <ScalarProperty Name="idMueble" ColumnName="idMueble" />
+    <EntitySetMapping Name="AtributosLino">
+      <EntityTypeMapping TypeName="CG2019Model.AtributosLino">
+        <MappingFragment StoreEntitySet="AtributosLino">
+          <ScalarProperty Name="Valores" ColumnName="Valores" />
+          <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+          <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AtributoMuebleTV">
-      <EntityTypeMapping TypeName="CG2019Model.AtributoMuebleTV">
-        <MappingFragment StoreEntitySet="AtributoMuebleTV">
-          <ScalarProperty Name="entrepaños" ColumnName="entrepaños" />
-          <ScalarProperty Name="numSepacionesConPuerta" ColumnName="numSepacionesConPuerta" />
-          <ScalarProperty Name="numSeparaciones" ColumnName="numSeparaciones" />
-          <ScalarProperty Name="colorBase" ColumnName="colorBase" />
-          <ScalarProperty Name="ancho" ColumnName="ancho" />
-          <ScalarProperty Name="largo" ColumnName="largo" />
-          <ScalarProperty Name="alto" ColumnName="alto" />
-          <ScalarProperty Name="idMueble" ColumnName="idMueble" />
+    <EntitySetMapping Name="AtributosMuebleTV">
+      <EntityTypeMapping TypeName="CG2019Model.AtributosMuebleTV">
+        <MappingFragment StoreEntitySet="AtributosMuebleTV">
+          <ScalarProperty Name="Valores" ColumnName="Valores" />
+          <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+          <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Cliente">
       <EntityTypeMapping TypeName="CG2019Model.Cliente">
         <MappingFragment StoreEntitySet="Cliente">
-          <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
-          <ScalarProperty Name="telefono" ColumnName="telefono" />
-          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
-          <ScalarProperty Name="nombres" ColumnName="nombres" />
-          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
-          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
-          <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Cotizacion">
       <EntityTypeMapping TypeName="CG2019Model.Cotizacion">
         <MappingFragment StoreEntitySet="Cotizacion">
-          <ScalarProperty Name="idMueble" ColumnName="idMueble" />
-          <ScalarProperty Name="correoCliente" ColumnName="correoCliente" />
-          <ScalarProperty Name="fechaeEntrega" ColumnName="fechaeEntrega" />
-          <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="TipoMueble" ColumnName="TipoMueble" />
+          <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
+          <ScalarProperty Name="CorreoCliente" ColumnName="CorreoCliente" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="FechaeEntrega" ColumnName="FechaeEntrega" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="PDF" ColumnName="PDF" />
-          <ScalarProperty Name="documentoExcelProp" ColumnName="documentoExcelProp" />
-          <ScalarProperty Name="idOrden" ColumnName="idOrden" />
+          <ScalarProperty Name="DocumentoExcelProp" ColumnName="DocumentoExcelProp" />
+          <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lavadero">
+      <EntityTypeMapping TypeName="CG2019Model.Lavadero">
+        <MappingFragment StoreEntitySet="Lavadero">
+          <ScalarProperty Name="DistanciaNivel" ColumnName="DistanciaNivel" />
+          <ScalarProperty Name="AltSobrePiso" ColumnName="AltSobrePiso" />
+          <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+          <ScalarProperty Name="NumPuertas" ColumnName="NumPuertas" />
+          <ScalarProperty Name="Columnas" ColumnName="Columnas" />
+          <ScalarProperty Name="Niveles" ColumnName="Niveles" />
+          <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+          <ScalarProperty Name="Largo" ColumnName="Largo" />
+          <ScalarProperty Name="Alto" ColumnName="Alto" />
+          <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lino">
+      <EntityTypeMapping TypeName="CG2019Model.Lino">
+        <MappingFragment StoreEntitySet="Lino">
+          <ScalarProperty Name="ColorTabla" ColumnName="ColorTabla" />
+          <ScalarProperty Name="ColorBase" ColumnName="ColorBase" />
+          <ScalarProperty Name="EntrepañosC2" ColumnName="EntrepañosC2" />
+          <ScalarProperty Name="EntrepañosC1" ColumnName="EntrepañosC1" />
+          <ScalarProperty Name="Columnas" ColumnName="Columnas" />
+          <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+          <ScalarProperty Name="Largo" ColumnName="Largo" />
+          <ScalarProperty Name="Alto" ColumnName="Alto" />
+          <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Mueble">
       <EntityTypeMapping TypeName="CG2019Model.Mueble">
         <MappingFragment StoreEntitySet="Mueble">
-          <ScalarProperty Name="idOrden" ColumnName="idOrden" />
-          <ScalarProperty Name="documentoExcelProp" ColumnName="documentoExcelProp" />
-          <ScalarProperty Name="idMueble" ColumnName="idMueble" />
+          <ScalarProperty Name="DocumentoExcelProp" ColumnName="DocumentoExcelProp" />
+          <ScalarProperty Name="TipoMueble" ColumnName="TipoMueble" />
+          <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+          <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MuebleTV">
+      <EntityTypeMapping TypeName="CG2019Model.MuebleTV">
+        <MappingFragment StoreEntitySet="MuebleTV">
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Entrepaños" ColumnName="Entrepaños" />
+          <ScalarProperty Name="NumSeparacionesConPuerta" ColumnName="NumSeparacionesConPuerta" />
+          <ScalarProperty Name="NumSeparaciones" ColumnName="NumSeparaciones" />
+          <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+          <ScalarProperty Name="Largo" ColumnName="Largo" />
+          <ScalarProperty Name="Alto" ColumnName="Alto" />
+          <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

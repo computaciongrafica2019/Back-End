@@ -20,14 +20,16 @@ namespace APPCG.Models
             this.Mueble = new HashSet<Mueble>();
         }
     
-        public int idOrden { get; set; }
-        public string documentoExcelProp { get; set; }
+        public int IdOrden { get; set; }
+        public string DocumentoExcelProp { get; set; }
         public string PDF { get; set; }
-        public string estado { get; set; }
-        public System.DateTime fechaCreacion { get; set; }
-        public System.DateTime fechaeEntrega { get; set; }
-        public string correoCliente { get; set; }
-        public int idMueble { get; set; }
+        public string Estado { get; set; }
+        public System.DateTime FechaCreacion { get; set; }
+        public System.DateTime FechaeEntrega { get; set; }
+        public int IdCliente { get; set; }
+        public string CorreoCliente { get; set; }
+        public int IdMueble { get; set; }
+        public string TipoMueble { get; set; }
     
         public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

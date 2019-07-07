@@ -17,10 +17,10 @@ namespace APPCG.Repositories
             try
             {
 
-                using (var db = new CG2019())
+                using (var db = new CG2019Entities())
                 {
 
-                    mueble = db.Mueble.Where(mue => mue.idMueble == idMueble).FirstOrDefault();
+                    mueble = db.Mueble.Where(mue => mue.IdMueble == idMueble).FirstOrDefault();
 
                 }
 
@@ -42,7 +42,7 @@ namespace APPCG.Repositories
             try
             {
 
-                using (var db = new CG2019())
+                using (var db = new CG2019Entities())
                 {
 
                     db.Mueble.Add(mueble);
@@ -65,10 +65,10 @@ namespace APPCG.Repositories
             try
             {
 
-                using (var db = new CG2019())
+                using (var db = new CG2019Entities())
                 {
 
-                    Mueble mueble = db.Mueble.Where(mue => mue.idMueble == idMueble).FirstOrDefault();
+                    Mueble mueble = db.Mueble.Where(mue => mue.IdMueble == idMueble).FirstOrDefault();
                     db.Mueble.Remove(mueble);
                     db.SaveChanges();
                     
@@ -90,12 +90,12 @@ namespace APPCG.Repositories
             try
             {
 
-                using (var db = new CG2019())
+                using (var db = new CG2019Entities())
                 {
 
-                    Mueble actualizar = db.Mueble.Where(mue => mue.idMueble == idMueble).FirstOrDefault();
+                    Mueble actualizar = db.Mueble.Where(mue => mue.IdMueble == idMueble).FirstOrDefault();
                     actualizar.Cotizacion = mueble.Cotizacion;
-                    actualizar.idOrden = mueble.idOrden;
+                    actualizar.IdOrden = mueble.IdOrden;
                     db.Entry(actualizar).State = EntityState.Modified;
                     db.SaveChanges();
 

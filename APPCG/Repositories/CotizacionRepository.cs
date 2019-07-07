@@ -19,10 +19,10 @@ namespace APPCG.Repositories
             try
             {
 
-                using (var db = new CG2019())
+                using (var db = new CG2019Entities())
                 {
 
-                    cotizacion = db.Cotizacion.Where(cot => cot.idOrden == idOrden).FirstOrDefault();
+                    cotizacion = db.Cotizacion.Where(cot => cot.IdOrden == idOrden).FirstOrDefault();
 
 
                 }
@@ -47,10 +47,10 @@ namespace APPCG.Repositories
             try
             {
 
-                using (var db = new CG2019())
+                using (var db = new CG2019Entities())
                 {
 
-                    cotizacion = db.Cotizacion.Where(cot => cot.correoCliente == correoElectronico).FirstOrDefault();
+                    cotizacion = db.Cotizacion.Where(cot => cot.CorreoCliente == correoElectronico).FirstOrDefault();
 
 
                 }
@@ -74,7 +74,7 @@ namespace APPCG.Repositories
             try
             {
 
-                using (var db = new CG2019())
+                using (var db = new CG2019Entities())
                 {
 
                     db.Cotizacion.Add(cotizacion);
@@ -98,7 +98,7 @@ namespace APPCG.Repositories
             try
             {
 
-                using (var db = new CG2019())
+                using (var db = new CG2019Entities())
                 {
 
                     Cotizacion cotizacion = db.Cotizacion.Find(idOrden);
@@ -124,15 +124,15 @@ namespace APPCG.Repositories
             try
             {
 
-                using (var db = new CG2019())
+                using (var db = new CG2019Entities())
                 {
 
-                    Cotizacion cotizacion_por_actualizar = db.Cotizacion.Where(cot => cot.idOrden == idOrden).FirstOrDefault();
-                    cotizacion_por_actualizar.documentoExcelProp = cotizacion.documentoExcelProp;
-                    cotizacion_por_actualizar.correoCliente = cotizacion.correoCliente;
-                    cotizacion_por_actualizar.estado = cotizacion.estado;
-                    cotizacion_por_actualizar.fechaCreacion = cotizacion.fechaCreacion;
-                    cotizacion_por_actualizar.fechaeEntrega = cotizacion.fechaeEntrega;
+                    Cotizacion cotizacion_por_actualizar = db.Cotizacion.Where(cot => cot.IdOrden == idOrden).FirstOrDefault();
+                    cotizacion_por_actualizar.DocumentoExcelProp = cotizacion.DocumentoExcelProp;
+                    cotizacion_por_actualizar.CorreoCliente = cotizacion.CorreoCliente;
+                    cotizacion_por_actualizar.Estado = cotizacion.Estado;
+                    cotizacion_por_actualizar.FechaCreacion = cotizacion.FechaCreacion;
+                    cotizacion_por_actualizar.FechaeEntrega = cotizacion.FechaeEntrega;
                     cotizacion_por_actualizar.PDF = cotizacion.PDF;
                     db.SaveChanges();
 

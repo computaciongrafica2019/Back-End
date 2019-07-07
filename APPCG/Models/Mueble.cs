@@ -14,13 +14,14 @@ namespace APPCG.Models
     
     public partial class Mueble
     {
-        public int idMueble { get; set; }
-        public string documentoExcelProp { get; set; }
-        public int idOrden { get; set; }
+        public int IdMueble { get; set; }
+        public int IdOrden { get; set; }
+        public string TipoMueble { get; set; }
+        public string DocumentoExcelProp { get; set; }
     
-        public virtual AtributoLavadero AtributoLavadero { get; set; }
-        public virtual AtributoLino AtributoLino { get; set; }
-        public virtual AtributoMuebleTV AtributoMuebleTV { get; set; }
         public virtual Cotizacion Cotizacion { get; set; }
+        public virtual Lavadero Lavadero { get; set; }
+        public virtual Lino Lino { get; set; }
+        public virtual MuebleTV MuebleTV { get; set; }
     }
 }

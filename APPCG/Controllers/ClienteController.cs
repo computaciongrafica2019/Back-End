@@ -11,7 +11,10 @@ namespace APPCG.Controllers
     public class ClienteController : Controller
     {
 
-        private ClienteRepository repository = new ClienteRepository();
+        private ClienteRepository repository { get { return new ClienteRepository(); } }
+
+
+
         // GET: Cliente
         public ActionResult Index()
         {
@@ -24,15 +27,30 @@ namespace APPCG.Controllers
             return View();
         }
 
-        // GET: Cliente/Create
-        public ActionResult Create()
+        // GET: Cliente/GetAll
+        //public JsonResult GetAll()
+        //{
+
+
+        //    var model =  repository.GetAll();
+        //    return Json(model, JsonRequestBehavior.AllowGet);
+
+
+        //}
+
+        public IEnumerable<Cliente> GetAll()
         {
-            return View();
+
+
+            return repository.GetAll();
+            //return Json(model, JsonRequestBehavior.AllowGet);
+
+
         }
 
         // POST: Cliente/Create
         [HttpPost]
-        public ActionResult Create([System.Web.Http.FromBody]  Cliente cliente)
+        public ActionResult Create(Cliente cliente)
         {
             try
             {
