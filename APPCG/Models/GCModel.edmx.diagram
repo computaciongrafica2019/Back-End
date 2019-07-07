@@ -5,11 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ca81852cd7354020ae803d9ad7ea1e22" Name="Diagram1">
-        <EntityTypeShape EntityType="CG2019Model.Cliente" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CG2019Model.Cotizacion" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CG2019Model.Mueble" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <AssociationConnector Association="CG2019Model.FK__Cotizacio__idOrd__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="CG2019Model.FK__Cotizacio__idMue__3C69FB99" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CG2019Model.AtributoLavadero" Width="1.5" PointX="8.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CG2019Model.AtributoLino" Width="1.5" PointX="5.375" PointY="1.25" />
+        <EntityTypeShape EntityType="CG2019Model.AtributoMuebleTV" Width="1.5" PointX="5.25" PointY="7.75" />
+        <EntityTypeShape EntityType="CG2019Model.Cliente" Width="1.5" PointX="0.75" PointY="4.625" />
+        <EntityTypeShape EntityType="CG2019Model.Cotizacion" Width="1.5" PointX="3" PointY="4.375" />
+        <EntityTypeShape EntityType="CG2019Model.Mueble" Width="1.5" PointX="5.25" PointY="4.625" />
+        <AssociationConnector Association="CG2019Model.FK__AtributoL__color__5629CD9C" />
+        <AssociationConnector Association="CG2019Model.FK__AtributoL__color__5FB337D6" />
+        <AssociationConnector Association="CG2019Model.FK__AtributoM__entre__693CA210" />
+        <AssociationConnector Association="CG2019Model.FK__Cotizacio__corre__4CA06362" />
+        <AssociationConnector Association="CG2019Model.FK__Mueble__idOrden__4F7CD00D" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -14,20 +14,13 @@ namespace APPCG.Models
     
     public partial class Mueble
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Mueble()
-        {
-            this.Cotizacion = new HashSet<Cotizacion>();
-        }
-    
         public int idMueble { get; set; }
-        public int alto { get; set; }
-        public int largo { get; set; }
-        public int profundidad { get; set; }
-        public int alfoF { get; set; }
-        public string docuentoExcelProp { get; set; }
+        public string documentoExcelProp { get; set; }
+        public int idOrden { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cotizacion> Cotizacion { get; set; }
+        public virtual AtributoLavadero AtributoLavadero { get; set; }
+        public virtual AtributoLino AtributoLino { get; set; }
+        public virtual AtributoMuebleTV AtributoMuebleTV { get; set; }
+        public virtual Cotizacion Cotizacion { get; set; }
     }
 }
