@@ -43,7 +43,7 @@ namespace APPCG.Controllers
                 cliente.Telefono = item.Telefono;
                 cliente.FechaCreacion = item.FechaCreacion;
                 cliente.Contraseña = item.Contraseña;
-
+                cliente.IdCliente = item.IdCliente;
                 list.Add(cliente);
             }
             return Json(list, JsonRequestBehavior.AllowGet);
