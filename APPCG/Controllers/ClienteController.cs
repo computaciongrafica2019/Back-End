@@ -28,25 +28,30 @@ namespace APPCG.Controllers
         }
 
         // GET: Cliente/GetAll
-        //public JsonResult GetAll()
-        //{
-
-
-        //    var model =  repository.GetAll();
-        //    return Json(model, JsonRequestBehavior.AllowGet);
-
-
-        //}
-
-        public IEnumerable<Cliente> GetAll()
+        public JsonResult GetAll()
         {
+            var model = repository.GetAll();
+            List<ClienteViewModel> list = new List<ClienteViewModel>();
 
+            foreach (var item in model)
+            {
+                ClienteViewModel cliente = new ClienteViewModel();
+                cliente.Apellidos = item.Apellidos;
+                cliente.CorreoElectronico = item.CorreoElectronico;
+                cliente.Nombres = item.Nombres;
+                cliente.NombreUsuario = item.NombreUsuario;
+                cliente.Telefono = item.Telefono;
+                cliente.FechaCreacion = item.FechaCreacion;
+                cliente.Contraseña = item.Contraseña;
 
-            return repository.GetAll();
-            //return Json(model, JsonRequestBehavior.AllowGet);
+                list.Add(cliente);
+            }
+            return Json(list, JsonRequestBehavior.AllowGet);
 
 
         }
+
+
 
         // POST: Cliente/Create
         [HttpPost]

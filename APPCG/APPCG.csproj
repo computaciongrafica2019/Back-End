@@ -298,6 +298,7 @@
     <Compile Include="Models\Cliente.cs">
       <DependentUpon>GCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClienteViewModel.cs" />
     <Compile Include="Models\Cotizacion.cs">
       <DependentUpon>GCModel.tt</DependentUpon>
     </Compile>
