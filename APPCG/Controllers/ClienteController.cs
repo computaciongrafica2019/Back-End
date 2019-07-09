@@ -59,7 +59,7 @@ namespace APPCG.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+
                 repository.CreateCliente(cliente);
                 return RedirectToAction("Index");
             }

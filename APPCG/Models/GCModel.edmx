@@ -114,7 +114,7 @@
           <Property Name="Entrepaños" Type="int" Nullable="false" />
           <Property Name="Color" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Cotizacio__TipoM__4E88ABD4">
+        <Association Name="FK__Cotizacio__TipoM__4F7CD00D">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -126,7 +126,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Lavadero__Distan__60A75C0F">
+        <Association Name="FK__Lavadero__Distan__619B8048">
           <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
           <End Role="Lavadero" Type="Self.Lavadero" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -138,7 +138,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Lino__ColorTabla__6B24EA82">
+        <Association Name="FK__Lino__ColorTabla__6C190EBB">
           <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
           <End Role="Lino" Type="Self.Lino" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -150,7 +150,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mueble__IdOrden__52593CB8">
+        <Association Name="FK__Mueble__IdOrden__534D60F1">
           <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
           <End Role="Mueble" Type="Self.Mueble" Multiplicity="*" />
           <ReferentialConstraint>
@@ -162,7 +162,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__MuebleTV__Color__74AE54BC">
+        <Association Name="FK__MuebleTV__Color__75A278F5">
           <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
           <End Role="MuebleTV" Type="Self.MuebleTV" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -174,6 +174,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Buscar_Mueble_Con_IdCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCotizacion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Buscar_Mueble_Con_IdCotizacion_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCotizacionCl" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="CG2019ModelStoreContainer">
           <EntitySet Name="AtributosLavadero" EntityType="Self.AtributosLavadero" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AtributosLino" EntityType="Self.AtributosLino" Schema="dbo" store:Type="Tables" />
@@ -184,23 +190,23 @@
           <EntitySet Name="Lino" EntityType="Self.Lino" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mueble" EntityType="Self.Mueble" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MuebleTV" EntityType="Self.MuebleTV" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Cotizacio__TipoM__4E88ABD4" Association="Self.FK__Cotizacio__TipoM__4E88ABD4">
+          <AssociationSet Name="FK__Cotizacio__TipoM__4F7CD00D" Association="Self.FK__Cotizacio__TipoM__4F7CD00D">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Cotizacion" EntitySet="Cotizacion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Lavadero__Distan__60A75C0F" Association="Self.FK__Lavadero__Distan__60A75C0F">
+          <AssociationSet Name="FK__Lavadero__Distan__619B8048" Association="Self.FK__Lavadero__Distan__619B8048">
             <End Role="Mueble" EntitySet="Mueble" />
             <End Role="Lavadero" EntitySet="Lavadero" />
           </AssociationSet>
-          <AssociationSet Name="FK__Lino__ColorTabla__6B24EA82" Association="Self.FK__Lino__ColorTabla__6B24EA82">
+          <AssociationSet Name="FK__Lino__ColorTabla__6C190EBB" Association="Self.FK__Lino__ColorTabla__6C190EBB">
             <End Role="Mueble" EntitySet="Mueble" />
             <End Role="Lino" EntitySet="Lino" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mueble__IdOrden__52593CB8" Association="Self.FK__Mueble__IdOrden__52593CB8">
+          <AssociationSet Name="FK__Mueble__IdOrden__534D60F1" Association="Self.FK__Mueble__IdOrden__534D60F1">
             <End Role="Cotizacion" EntitySet="Cotizacion" />
             <End Role="Mueble" EntitySet="Mueble" />
           </AssociationSet>
-          <AssociationSet Name="FK__MuebleTV__Color__74AE54BC" Association="Self.FK__MuebleTV__Color__74AE54BC">
+          <AssociationSet Name="FK__MuebleTV__Color__75A278F5" Association="Self.FK__MuebleTV__Color__75A278F5">
             <End Role="Mueble" EntitySet="Mueble" />
             <End Role="MuebleTV" EntitySet="MuebleTV" />
           </AssociationSet>
@@ -239,6 +245,12 @@
             <End Role="Mueble" EntitySet="Mueble" />
             <End Role="MuebleTV" EntitySet="MuebleTV" />
           </AssociationSet>
+          <FunctionImport Name="Buscar_Mueble_Con_IdCotizacion" ReturnType="Collection(CG2019Model.Buscar_Mueble_Con_IdCotizacion_Result)">
+            <Parameter Name="IdCotizacion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Buscar_Mueble_Con_IdCotizacion_Cliente" ReturnType="Collection(CG2019Model.Buscar_Mueble_Con_IdCotizacion_Cliente_Result)">
+            <Parameter Name="IdCotizacionCl" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="AtributosLavadero">
           <Key>
@@ -419,6 +431,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="Buscar_Mueble_Con_IdCotizacion_Result">
+          <Property Type="Int32" Name="IdOrden" Nullable="false" />
+          <Property Type="String" Name="TipoMueble" Nullable="false" MaxLength="60" />
+          <Property Type="Int32" Name="IdMueble" Nullable="false" />
+          <Property Type="Int32" Name="Alto" Nullable="false" />
+          <Property Type="Int32" Name="Largo" Nullable="false" />
+          <Property Type="Int32" Name="Ancho" Nullable="false" />
+          <Property Type="Int32" Name="Niveles" Nullable="false" />
+          <Property Type="Int32" Name="Columnas" Nullable="false" />
+          <Property Type="Int32" Name="NumPuertas" Nullable="false" />
+          <Property Type="Int32" Name="Espesor" Nullable="false" />
+          <Property Type="Int32" Name="AltSobrePiso" Nullable="false" />
+          <Property Type="Double" Name="DistanciaNivel" Nullable="false" />
+          <Property Type="String" Name="DocumentoExcelProp" Nullable="true" MaxLength="320" />
+        </ComplexType>
+        <ComplexType Name="Buscar_Mueble_Con_IdCotizacion_Cliente_Result">
+          <Property Type="Int32" Name="IdCliente" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="IdOrden" Nullable="false" />
+          <Property Type="String" Name="TipoMueble" Nullable="false" MaxLength="60" />
+          <Property Type="Int32" Name="IdMueble" Nullable="false" />
+          <Property Type="Int32" Name="Alto" Nullable="false" />
+          <Property Type="Int32" Name="Largo" Nullable="false" />
+          <Property Type="Int32" Name="Ancho" Nullable="false" />
+          <Property Type="Int32" Name="Niveles" Nullable="false" />
+          <Property Type="Int32" Name="Columnas" Nullable="false" />
+          <Property Type="Int32" Name="NumPuertas" Nullable="false" />
+          <Property Type="Int32" Name="Espesor" Nullable="false" />
+          <Property Type="Int32" Name="AltSobrePiso" Nullable="false" />
+          <Property Type="Double" Name="DistanciaNivel" Nullable="false" />
+          <Property Type="String" Name="DocumentoExcelProp" Nullable="true" MaxLength="320" />
+          <Property Type="String" Name="PDF" Nullable="true" MaxLength="320" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -543,6 +589,48 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Buscar_Mueble_Con_IdCotizacion" FunctionName="CG2019Model.Store.Buscar_Mueble_Con_IdCotizacion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CG2019Model.Buscar_Mueble_Con_IdCotizacion_Result">
+                <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+                <ScalarProperty Name="TipoMueble" ColumnName="TipoMueble" />
+                <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
+                <ScalarProperty Name="Alto" ColumnName="Alto" />
+                <ScalarProperty Name="Largo" ColumnName="Largo" />
+                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+                <ScalarProperty Name="Niveles" ColumnName="Niveles" />
+                <ScalarProperty Name="Columnas" ColumnName="Columnas" />
+                <ScalarProperty Name="NumPuertas" ColumnName="NumPuertas" />
+                <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+                <ScalarProperty Name="AltSobrePiso" ColumnName="AltSobrePiso" />
+                <ScalarProperty Name="DistanciaNivel" ColumnName="DistanciaNivel" />
+                <ScalarProperty Name="DocumentoExcelProp" ColumnName="DocumentoExcelProp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Buscar_Mueble_Con_IdCotizacion_Cliente" FunctionName="CG2019Model.Store.Buscar_Mueble_Con_IdCotizacion_Cliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CG2019Model.Buscar_Mueble_Con_IdCotizacion_Cliente_Result">
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+                <ScalarProperty Name="TipoMueble" ColumnName="TipoMueble" />
+                <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
+                <ScalarProperty Name="Alto" ColumnName="Alto" />
+                <ScalarProperty Name="Largo" ColumnName="Largo" />
+                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+                <ScalarProperty Name="Niveles" ColumnName="Niveles" />
+                <ScalarProperty Name="Columnas" ColumnName="Columnas" />
+                <ScalarProperty Name="NumPuertas" ColumnName="NumPuertas" />
+                <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+                <ScalarProperty Name="AltSobrePiso" ColumnName="AltSobrePiso" />
+                <ScalarProperty Name="DistanciaNivel" ColumnName="DistanciaNivel" />
+                <ScalarProperty Name="DocumentoExcelProp" ColumnName="DocumentoExcelProp" />
+                <ScalarProperty Name="PDF" ColumnName="PDF" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

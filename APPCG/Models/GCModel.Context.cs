@@ -12,6 +12,8 @@ namespace APPCG.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class CG2019Entities : DbContext
     {
@@ -34,5 +36,23 @@ namespace APPCG.Models
         public virtual DbSet<Lino> Lino { get; set; }
         public virtual DbSet<Mueble> Mueble { get; set; }
         public virtual DbSet<MuebleTV> MuebleTV { get; set; }
+    
+        public virtual ObjectResult<Buscar_Mueble_Con_IdCotizacion_Result> Buscar_Mueble_Con_IdCotizacion(Nullable<int> idCotizacion)
+        {
+            var idCotizacionParameter = idCotizacion.HasValue ?
+                new ObjectParameter("IdCotizacion", idCotizacion) :
+                new ObjectParameter("IdCotizacion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Buscar_Mueble_Con_IdCotizacion_Result>("Buscar_Mueble_Con_IdCotizacion", idCotizacionParameter);
+        }
+    
+        public virtual ObjectResult<Buscar_Mueble_Con_IdCotizacion_Cliente_Result> Buscar_Mueble_Con_IdCotizacion_Cliente(Nullable<int> idCotizacionCl)
+        {
+            var idCotizacionClParameter = idCotizacionCl.HasValue ?
+                new ObjectParameter("IdCotizacionCl", idCotizacionCl) :
+                new ObjectParameter("IdCotizacionCl", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Buscar_Mueble_Con_IdCotizacion_Cliente_Result>("Buscar_Mueble_Con_IdCotizacion_Cliente", idCotizacionClParameter);
+        }
     }
 }
