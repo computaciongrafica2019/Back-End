@@ -9,6 +9,31 @@ namespace APPCG.Repositories
 {
     public class MuebleRepository
     {
+
+        public IEnumerable<Mueble> GetAll()
+        {
+            IEnumerable<Mueble> muebles = null;
+
+            try
+            {
+
+                using (var db = new CG2019Entities())
+                {
+
+                    muebles = db.Mueble.ToList();
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return muebles;
+        }
+
+
         public Mueble GetMueble(int idMueble)
         {
 
@@ -46,7 +71,7 @@ namespace APPCG.Repositories
                 {
 
                     db.Mueble.Add(mueble);
-                    db.SaveChanges();
+
                 }
 
 
@@ -59,58 +84,5 @@ namespace APPCG.Repositories
 
 
         }
-
-        public void DeleteMueble(int idMueble)
-        {
-            try
-            {
-
-                using (var db = new CG2019Entities())
-                {
-
-                    Mueble mueble = db.Mueble.Where(mue => mue.IdMueble == idMueble).FirstOrDefault();
-                    db.Mueble.Remove(mueble);
-                    db.SaveChanges();
-                    
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-
-        }
-
-        public void UpdateMueble(int idMueble, Mueble mueble)
-        {
-            try
-            {
-
-                using (var db = new CG2019Entities())
-                {
-
-                    Mueble actualizar = db.Mueble.Where(mue => mue.IdMueble == idMueble).FirstOrDefault();
-                    actualizar.Cotizacion = mueble.Cotizacion;
-                    actualizar.IdOrden = mueble.IdOrden;
-                    db.Entry(actualizar).State = EntityState.Modified;
-                    db.SaveChanges();
-
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            
-
-        }
-
     }
 }

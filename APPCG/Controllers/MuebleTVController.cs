@@ -1,4 +1,7 @@
-﻿using APPCG.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using APPCG.Models;
 using APPCG.Repositories;
 using System;
 using System.Collections.Generic;
@@ -8,34 +11,39 @@ using System.Web.Mvc;
 
 namespace APPCG.Controllers
 {
-    public class MuebleController : Controller
+    public class MuebleTVController : Controller
     {
-        private MuebleRepository repository = new MuebleRepository();
-        // GET: Mueble
+        private MuebleTVRepository repository = new MuebleTVRepository();
+
+        // GET: MuebleTV
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Mueble/Details/5
+        // GET: MuebleTV/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Mueble/GetAll
+        // GET: MuebleTV/GetAll
         public JsonResult GetAll()
         {
             var model = repository.GetAll();
-            List<MuebleViewModel> list = new List<MuebleViewModel>();
+            List<MuebleTVViewModel> list = new List<MuebleTVViewModel>();
 
             foreach (var item in model)
             {
-                MuebleViewModel mueble = new MuebleViewModel();
-                mueble.DocumentoExcelProp = item.DocumentoExcelProp;
+                MuebleTVViewModel mueble = new MuebleTVViewModel();
+                mueble.Alto = item.Alto;
+                mueble.Ancho = item.Ancho;
+                mueble.Color = item.Color;
+                mueble.Entrepaños = item.Entrepaños;
                 mueble.IdMueble = item.IdMueble;
-                mueble.IdOrden = item.IdOrden;
-                mueble.TipoMueble = item.TipoMueble;
+                mueble.Largo = item.Largo;
+                mueble.NumSeparaciones = item.NumSeparaciones;
+                mueble.NumSeparacionesConPuerta = item.NumSeparacionesConPuerta;
                 list.Add(mueble);
             }
             return Json(list, JsonRequestBehavior.AllowGet);
@@ -43,22 +51,20 @@ namespace APPCG.Controllers
 
         }
 
-
-
-        // GET: Mueble/Create
+        // GET: MuebleTV/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Mueble/Create
+        // POST: MuebleTV/Create
         [HttpPost]
-        public ActionResult Create(Mueble mueble)
+        public ActionResult Create(MuebleTV mueble)
         {
             try
             {
 
-                repository.CreateMueble(mueble);
+                repository.CreateMuebleTV(mueble);
                 return RedirectToAction("Index");
             }
             catch
@@ -67,13 +73,13 @@ namespace APPCG.Controllers
             }
         }
 
-        // GET: Mueble/Edit/5
+        // GET: MuebleTV/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Mueble/Edit/5
+        // POST: MuebleTV/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -89,13 +95,13 @@ namespace APPCG.Controllers
             }
         }
 
-        // GET: Mueble/Delete/5
+        // GET: MuebleTV/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Mueble/Delete/5
+        // POST: MuebleTV/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

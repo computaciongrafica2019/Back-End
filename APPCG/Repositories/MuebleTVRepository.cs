@@ -1,20 +1,18 @@
-﻿using System;
+﻿using APPCG.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using APPCG.Models;
-
 
 namespace APPCG.Repositories
 {
-    public class AtributosMuebleTVRepository
+    public class MuebleTVRepository
+
     {
-
-
-        public AtributosMuebleTV GetAtributos(string nombre)
+        public IEnumerable<MuebleTV> GetAll()
         {
-
-            AtributosMuebleTV atributosMuebleTV = null;
+            IEnumerable<MuebleTV> muebles = null;
 
             try
             {
@@ -22,8 +20,32 @@ namespace APPCG.Repositories
                 using (var db = new CG2019Entities())
                 {
 
-                    atributosMuebleTV = db.AtributosMuebleTV.Where(cot => cot.Nombre == nombre).FirstOrDefault();
+                    muebles = db.MuebleTV.ToList();
 
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return muebles;
+        }
+
+
+        public MuebleTV GetMuebleTV(int idMueble)
+        {
+
+            MuebleTV mueble = null;
+
+            try
+            {
+
+                using (var db = new CG2019Entities())
+                {
+
+                    mueble = db.MuebleTV.Where(mue => mue.IdMueble == idMueble).FirstOrDefault();
 
                 }
 
@@ -35,12 +57,11 @@ namespace APPCG.Repositories
             }
 
 
-            return atributosMuebleTV;
+            return mueble;
 
         }
 
-
-        public void CreateAtributoMuebleTV(AtributosMuebleTV atributosMuebleTV)
+        public void CreateMuebleTV(MuebleTV mueble)
         {
 
             try
@@ -49,33 +70,7 @@ namespace APPCG.Repositories
                 using (var db = new CG2019Entities())
                 {
 
-                    db.AtributosMuebleTV.Add(atributosMuebleTV);
-
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-
-        }
-
-        public void DeleteCotizacion(int idMueble)
-        {
-
-            try
-            {
-
-                using (var db = new CG2019Entities())
-                {
-
-                    AtributosMuebleTV atributosMuebleTV = db.AtributosMuebleTV.Find(idMueble);
-                    db.AtributosMuebleTV.Remove(atributosMuebleTV);
-                    db.SaveChanges();
+                    db.MuebleTV.Add(mueble);
 
                 }
 

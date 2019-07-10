@@ -293,6 +293,7 @@
     <Compile Include="Controllers\LavaderoController.cs" />
     <Compile Include="Controllers\LinoController.cs" />
     <Compile Include="Controllers\MuebleController.cs" />
+    <Compile Include="Controllers\MuebleTVController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -341,6 +342,8 @@
     <Compile Include="Models\Lino.cs">
       <DependentUpon>GCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MuebleTVViewModel.cs" />
+    <Compile Include="Models\MuebleViewModel.cs" />
     <Compile Include="Models\LinoViewModel.cs" />
     <Compile Include="Models\Mueble.cs">
       <DependentUpon>GCModel.tt</DependentUpon>
@@ -355,6 +358,7 @@
     <Compile Include="Repositories\AtributoMuebleTVRepository.cs" />
     <Compile Include="Repositories\AtributoLinoRepository.cs" />
     <Compile Include="Repositories\LinoRepository.cs" />
+    <Compile Include="Repositories\MuebleTVRepository.cs" />
     <Compile Include="Repositories\MuebleRepository.cs" />
     <Compile Include="Repositories\ClienteRepository.cs" />
     <Compile Include="Services\Mailer.cs" />
@@ -435,6 +439,7 @@
     <Folder Include="Views\Cliente\" />
     <Folder Include="Views\Lavadero\" />
     <Folder Include="Views\Lino\" />
+    <Folder Include="Views\MuebleTV\" />
     <Folder Include="Views\Mueble\" />
   </ItemGroup>
   <ItemGroup>
