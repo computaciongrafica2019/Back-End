@@ -30,6 +30,12 @@
       <End Role="Mueble" EntitySet="Mueble" />
       <End Role="MuebleTV" EntitySet="MuebleTV" />
     </AssociationSet>
+    <FunctionImport Name="Buscar_Mueble_Con_IdCotizacion" ReturnType="Collection(CG2019Model.Buscar_Mueble_Con_IdCotizacion_Result)">
+      <Parameter Name="IdCotizacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Buscar_Mueble_Con_IdCotizacion_Cliente" ReturnType="Collection(CG2019Model.Buscar_Mueble_Con_IdCotizacion_Cliente_Result)">
+      <Parameter Name="IdCotizacionCl" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="AtributosLavadero">
     <Key>
@@ -210,4 +216,38 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="Buscar_Mueble_Con_IdCotizacion_Result">
+    <Property Type="Int32" Name="IdOrden" Nullable="false" />
+    <Property Type="String" Name="TipoMueble" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="IdMueble" Nullable="false" />
+    <Property Type="Int32" Name="Alto" Nullable="false" />
+    <Property Type="Int32" Name="Largo" Nullable="false" />
+    <Property Type="Int32" Name="Ancho" Nullable="false" />
+    <Property Type="Int32" Name="Niveles" Nullable="false" />
+    <Property Type="Int32" Name="Columnas" Nullable="false" />
+    <Property Type="Int32" Name="NumPuertas" Nullable="false" />
+    <Property Type="Int32" Name="Espesor" Nullable="false" />
+    <Property Type="Int32" Name="AltSobrePiso" Nullable="false" />
+    <Property Type="Double" Name="DistanciaNivel" Nullable="false" />
+    <Property Type="String" Name="DocumentoExcelProp" Nullable="true" MaxLength="320" />
+  </ComplexType>
+  <ComplexType Name="Buscar_Mueble_Con_IdCotizacion_Cliente_Result">
+    <Property Type="Int32" Name="IdCliente" Nullable="false" />
+    <Property Type="String" Name="Nombres" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="30" />
+    <Property Type="Int32" Name="IdOrden" Nullable="false" />
+    <Property Type="String" Name="TipoMueble" Nullable="false" MaxLength="60" />
+    <Property Type="Int32" Name="IdMueble" Nullable="false" />
+    <Property Type="Int32" Name="Alto" Nullable="false" />
+    <Property Type="Int32" Name="Largo" Nullable="false" />
+    <Property Type="Int32" Name="Ancho" Nullable="false" />
+    <Property Type="Int32" Name="Niveles" Nullable="false" />
+    <Property Type="Int32" Name="Columnas" Nullable="false" />
+    <Property Type="Int32" Name="NumPuertas" Nullable="false" />
+    <Property Type="Int32" Name="Espesor" Nullable="false" />
+    <Property Type="Int32" Name="AltSobrePiso" Nullable="false" />
+    <Property Type="Double" Name="DistanciaNivel" Nullable="false" />
+    <Property Type="String" Name="DocumentoExcelProp" Nullable="true" MaxLength="320" />
+    <Property Type="String" Name="PDF" Nullable="true" MaxLength="320" />
+  </ComplexType>
 </Schema>

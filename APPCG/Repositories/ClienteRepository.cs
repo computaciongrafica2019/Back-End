@@ -36,18 +36,19 @@ namespace APPCG.Repositories
 
 
 
-        public Cliente GetCliente(String correoElectronico)
+        public Cliente GetCliente(int  idCliente)
         {
 
-            Cliente cliente = null;
+            Cliente clienteResult = null;
 
             try
             {
 
                 using (var db = new CG2019Entities())
                 {
-
-                    cliente = db.Cliente.Where(cli => cli.CorreoElectronico == correoElectronico).FirstOrDefault();
+                    var result = db.Cliente.Where(cliente => cliente.IdCliente == idCliente).FirstOrDefault();
+                    if (result != null)
+                        clienteResult = result;
 
                 }
 
@@ -59,14 +60,14 @@ namespace APPCG.Repositories
             }
 
 
-            return cliente;
+            return clienteResult;
 
         }
 
 
-        public void CreateCliente(Cliente cliente)
+        public int CreateCliente(Cliente cliente)
         {
-
+            int idCliente = 0;
             try
             {
 
@@ -74,7 +75,10 @@ namespace APPCG.Repositories
                 {
 
                    db.Cliente.Add(cliente);
-                            
+                   db.SaveChanges();
+                   idCliente = cliente.IdCliente;
+
+
                 }
 
 
@@ -85,7 +89,7 @@ namespace APPCG.Repositories
                 throw ex;
             }
 
-
+            return idCliente;
         }
 
 

@@ -4,7 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using APPCG.Models;
+using APPCG.Services;
 using APPCG.Repositories;
+using APPCG.Helpers;
+using System.Security.Cryptography;
+using System.Web.Http;
 
 namespace APPCG.Controllers
 {
@@ -12,6 +16,7 @@ namespace APPCG.Controllers
     {
 
         private ClienteRepository repository { get { return new ClienteRepository(); } }
+        private ClienteService clienteService { get { return new ClienteService(); } }
 
 
 
@@ -21,32 +26,22 @@ namespace APPCG.Controllers
             return View();
         }
 
-        // GET: Cliente/Details/5
-        public ActionResult Details(int id)
+        // GET: Cliente/GetCliente?idCliente=1
+        public JsonResult GetCliente(int idCliente)
         {
-            return View();
+
+            var model = clienteService.GetCliente(idCliente);
+            return Json(model, JsonRequestBehavior.AllowGet);
+
+
         }
 
         // GET: Cliente/GetAll
         public JsonResult GetAll()
         {
-            var model = repository.GetAll();
-            List<ClienteViewModel> list = new List<ClienteViewModel>();
+            var model = clienteService.GetAll();
 
-            foreach (var item in model)
-            {
-                ClienteViewModel cliente = new ClienteViewModel();
-                cliente.Apellidos = item.Apellidos;
-                cliente.CorreoElectronico = item.CorreoElectronico;
-                cliente.Nombres = item.Nombres;
-                cliente.NombreUsuario = item.NombreUsuario;
-                cliente.Telefono = item.Telefono;
-                cliente.FechaCreacion = item.FechaCreacion;
-                cliente.Contraseña = item.Contraseña;
-                cliente.IdCliente = item.IdCliente;
-                list.Add(cliente);
-            }
-            return Json(list, JsonRequestBehavior.AllowGet);
+            return Json(model, JsonRequestBehavior.AllowGet);
 
 
         }
@@ -54,20 +49,36 @@ namespace APPCG.Controllers
 
 
         // POST: Cliente/Create
-        [HttpPost]
-        public ActionResult Create(Cliente cliente)
+        [System.Web.Http.HttpPost]
+        public JsonResult Create([FromBody]Cliente clienteForm)
         {
-            try
-            {
+            Cliente cliente = new Cliente();
+            cliente.CorreoElectronico = clienteForm.CorreoElectronico;
+            cliente.Apellidos = clienteForm.Apellidos;
+            cliente.NombreUsuario = clienteForm.NombreUsuario;
+            cliente.Nombres = clienteForm.Nombres;
+            cliente.Telefono = clienteForm.Telefono;
+            cliente.FechaCreacion = DateTime.Now;
+            string pass = clienteForm.Contraseña;
 
-                repository.CreateCliente(cliente);
-                return RedirectToAction("Index");
-            }
-            catch
+            using (MD5 md5Hash = MD5.Create())
             {
-                return View();
+                pass = AccountHelper.GetMd5Hash(md5Hash, pass);
+
+
             }
+
+            cliente.Contraseña = pass;
+
+
+            var model = clienteService.CreateCliente(cliente);
+
+
+            return Json(model, JsonRequestBehavior.AllowGet);
+
         }
+
+
 
         // GET: Cliente/Edit/5
         public ActionResult Edit(int id)
@@ -76,7 +87,7 @@ namespace APPCG.Controllers
         }
 
         // POST: Cliente/Edit/5
-        [HttpPost]
+        [System.Web.Http.HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -98,7 +109,7 @@ namespace APPCG.Controllers
         }
 
         // POST: Cliente/Delete/5
-        [HttpPost]
+        [System.Web.Http.HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try

@@ -298,6 +298,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AccountHelper.cs" />
     <Compile Include="Models\AtributosLavadero.cs">
       <DependentUpon>GCModel.tt</DependentUpon>
     </Compile>
@@ -361,6 +362,7 @@
     <Compile Include="Repositories\MuebleTVRepository.cs" />
     <Compile Include="Repositories\MuebleRepository.cs" />
     <Compile Include="Repositories\ClienteRepository.cs" />
+    <Compile Include="Services\ClienteService.cs" />
     <Compile Include="Services\Mailer.cs" />
   </ItemGroup>
   <ItemGroup>

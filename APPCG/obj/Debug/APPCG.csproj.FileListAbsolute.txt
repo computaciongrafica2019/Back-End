@@ -355,3 +355,8 @@ C:\Proyectos\Back-End\APPCG\bin\System.Numerics.Vectors.xml
 C:\Proyectos\Back-End\APPCG\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Proyectos\Back-End\APPCG\bin\System.Text.Encodings.Web.xml
 C:\Proyectos\Back-End\APPCG\bin\System.Threading.Tasks.Extensions.xml
+C:\Proyectos\Back-End\APPCG\bin\BouncyCastle.Crypto.dll
+C:\Proyectos\Back-End\APPCG\bin\MailKit.dll
+C:\Proyectos\Back-End\APPCG\bin\MimeKit.dll
+C:\Proyectos\Back-End\APPCG\bin\MailKit.xml
+C:\Proyectos\Back-End\APPCG\bin\MimeKit.xml

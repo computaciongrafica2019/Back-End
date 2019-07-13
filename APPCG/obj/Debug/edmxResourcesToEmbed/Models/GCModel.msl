@@ -119,5 +119,47 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Buscar_Mueble_Con_IdCotizacion" FunctionName="CG2019Model.Store.Buscar_Mueble_Con_IdCotizacion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CG2019Model.Buscar_Mueble_Con_IdCotizacion_Result">
+          <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+          <ScalarProperty Name="TipoMueble" ColumnName="TipoMueble" />
+          <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
+          <ScalarProperty Name="Alto" ColumnName="Alto" />
+          <ScalarProperty Name="Largo" ColumnName="Largo" />
+          <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+          <ScalarProperty Name="Niveles" ColumnName="Niveles" />
+          <ScalarProperty Name="Columnas" ColumnName="Columnas" />
+          <ScalarProperty Name="NumPuertas" ColumnName="NumPuertas" />
+          <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+          <ScalarProperty Name="AltSobrePiso" ColumnName="AltSobrePiso" />
+          <ScalarProperty Name="DistanciaNivel" ColumnName="DistanciaNivel" />
+          <ScalarProperty Name="DocumentoExcelProp" ColumnName="DocumentoExcelProp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Buscar_Mueble_Con_IdCotizacion_Cliente" FunctionName="CG2019Model.Store.Buscar_Mueble_Con_IdCotizacion_Cliente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CG2019Model.Buscar_Mueble_Con_IdCotizacion_Cliente_Result">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+          <ScalarProperty Name="TipoMueble" ColumnName="TipoMueble" />
+          <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
+          <ScalarProperty Name="Alto" ColumnName="Alto" />
+          <ScalarProperty Name="Largo" ColumnName="Largo" />
+          <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+          <ScalarProperty Name="Niveles" ColumnName="Niveles" />
+          <ScalarProperty Name="Columnas" ColumnName="Columnas" />
+          <ScalarProperty Name="NumPuertas" ColumnName="NumPuertas" />
+          <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+          <ScalarProperty Name="AltSobrePiso" ColumnName="AltSobrePiso" />
+          <ScalarProperty Name="DistanciaNivel" ColumnName="DistanciaNivel" />
+          <ScalarProperty Name="DocumentoExcelProp" ColumnName="DocumentoExcelProp" />
+          <ScalarProperty Name="PDF" ColumnName="PDF" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>
