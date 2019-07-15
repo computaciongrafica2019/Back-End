@@ -360,3 +360,4 @@ C:\Proyectos\Back-End\APPCG\bin\MailKit.dll
 C:\Proyectos\Back-End\APPCG\bin\MimeKit.dll
 C:\Proyectos\Back-End\APPCG\bin\MailKit.xml
 C:\Proyectos\Back-End\APPCG\bin\MimeKit.xml
+C:\Proyectos\Back-End\APPCG\obj\Debug\APPCG.csproj.ResolveComReference.cache

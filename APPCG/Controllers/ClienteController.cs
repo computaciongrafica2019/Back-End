@@ -17,7 +17,7 @@ namespace APPCG.Controllers
 
         private ClienteRepository repository { get { return new ClienteRepository(); } }
         private ClienteService clienteService { get { return new ClienteService(); } }
-
+        private ExcelService excelService { get { return new ExcelService(); } }
 
 
         // GET: Cliente
@@ -29,7 +29,6 @@ namespace APPCG.Controllers
         // GET: Cliente/GetCliente?idCliente=1
         public JsonResult GetCliente(int idCliente)
         {
-
             var model = clienteService.GetCliente(idCliente);
             return Json(model, JsonRequestBehavior.AllowGet);
 
@@ -43,6 +42,24 @@ namespace APPCG.Controllers
 
             return Json(model, JsonRequestBehavior.AllowGet);
 
+
+        }
+
+        public JsonResult ExcelTest()
+        {
+            string path = @"C:\ExcelTest\Test.xlsx";
+
+            var myDict = new Dictionary<string, string>
+            {
+            { "A,1", "Hola" },
+            { "A,2", "Mundo" }
+            };
+
+
+            excelService.Excel(path,myDict);
+
+            var model = "exito";
+            return Json(model, JsonRequestBehavior.AllowGet);
 
         }
 
@@ -94,7 +111,7 @@ namespace APPCG.Controllers
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             catch
             {
