@@ -1,8 +1,9 @@
-﻿using System;
+﻿using APPCG.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using APPCG.Models;
 
 namespace APPCG.Repositories
 {
@@ -59,8 +60,10 @@ namespace APPCG.Repositories
 
         }
 
-        public void CreateLavadero(Lavadero lavadero)
+        public int CreateLavadero(Lavadero lavadero)
         {
+
+            int idLavadero = 0;
 
             try
             {
@@ -69,6 +72,8 @@ namespace APPCG.Repositories
                 {
 
                     db.Lavadero.Add(lavadero);
+                    db.SaveChanges();
+                    idLavadero = lavadero.IdMueble;
 
                 }
 
@@ -80,6 +85,7 @@ namespace APPCG.Repositories
                 throw ex;
             }
 
+            return idLavadero;
 
         }
 

@@ -1,16 +1,25 @@
-﻿using APPCG.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using APPCG.Models;
 using APPCG.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Http;
+using System.Security.Cryptography;
+using APPCG.Helpers;
+using APPCG.Services;
 
 namespace APPCG.Controllers
 {
     public class LavaderoController : Controller
     {
         private LavaderoRepository repository = new LavaderoRepository();
+
+        private LavaderoService serviceLavadero { get { return new LavaderoService(); } }
 
         // GET: Lavadero
         public ActionResult Index()
@@ -50,19 +59,28 @@ namespace APPCG.Controllers
         }
 
         // POST: Lavadero/Create
-        [HttpPost]
-        public ActionResult Create(Lavadero lavadero)
+        [System.Web.Http.HttpPost]
+        public JsonResult Create([FromBody]LavaderoViewModel Form)
         {
+
+            bool result = false;
+            string messageResponse = "";
             try
             {
-
-                repository.CreateLavadero(lavadero);
-                return RedirectToAction("Index");
+                result = serviceLavadero.CreateLavadero(Form);
+                if (result)
+                    messageResponse = "Cotizacion creada de forma exitosa";
+                else
+                    messageResponse = "Lo sentimos, no se pudo crear la cotizacion";
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                messageResponse = ex.Message;
             }
+
+            return Json(messageResponse, JsonRequestBehavior.AllowGet);
+
+
         }
 
         // GET: Lavadero/Edit/5
@@ -71,42 +89,6 @@ namespace APPCG.Controllers
             return View();
         }
 
-        // POST: Lavadero/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Lavadero/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Lavadero/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
     }
 }
