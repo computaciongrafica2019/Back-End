@@ -61,9 +61,9 @@ namespace APPCG.Repositories
 
         }
 
-        public void CreateMuebleTV(MuebleTV mueble)
+        public int CreateMuebleTV(MuebleTV mueble)
         {
-
+            int idMuebleTV = 0;
             try
             {
 
@@ -71,7 +71,8 @@ namespace APPCG.Repositories
                 {
 
                     db.MuebleTV.Add(mueble);
-
+                    db.SaveChanges();
+                    idMuebleTV = mueble.IdMueble;
                 }
 
 
@@ -82,7 +83,7 @@ namespace APPCG.Repositories
                 throw ex;
             }
 
-
+            return idMuebleTV;
         }
 
     }

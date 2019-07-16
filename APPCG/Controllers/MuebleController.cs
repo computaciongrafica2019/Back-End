@@ -29,15 +29,15 @@ namespace APPCG.Controllers
             var model = repository.GetAll();
             List<MuebleViewModel> list = new List<MuebleViewModel>();
 
-            foreach (var item in model)
-            {
-                MuebleViewModel mueble = new MuebleViewModel();
-                mueble.DocumentoExcelProp = item.DocumentoExcelProp;
-                mueble.IdMueble = item.IdMueble;
-                mueble.IdOrden = item.IdOrden;
-                mueble.TipoMueble = item.TipoMueble;
-                list.Add(mueble);
-            }
+            //foreach (var item in model)
+            //{
+            //    MuebleViewModel mueble = new MuebleViewModel();
+            //    mueble.DocumentoExcelProp = item.DocumentoExcelProp;
+            //    mueble.IdMueble = item.IdMueble;
+            //    mueble.IdOrden = item.IdOrden;
+            //    mueble.TipoMueble = item.TipoMueble;
+            //    list.Add(mueble);
+            //}
             return Json(list, JsonRequestBehavior.AllowGet);
 
 

@@ -8,12 +8,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Http;
+using System.Security.Cryptography;
+using APPCG.Helpers;
+using APPCG.Services;
+
 
 namespace APPCG.Controllers
 {
     public class MuebleTVController : Controller
     {
         private MuebleTVRepository repository = new MuebleTVRepository();
+
+        private MuebleTVService serviceMuebleTV { get { return new MuebleTVService(); } }
 
         // GET: MuebleTV
         public ActionResult Index()
@@ -51,26 +58,29 @@ namespace APPCG.Controllers
 
         }
 
-        // GET: MuebleTV/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         // POST: MuebleTV/Create
-        [HttpPost]
-        public ActionResult Create(MuebleTV mueble)
+        [System.Web.Http.HttpPost]
+        public JsonResult Create([FromBody]MuebleTVViewModel Form)
         {
+
+            bool result = false;
+            string messageResponse = "";
             try
             {
-
-                repository.CreateMuebleTV(mueble);
-                return RedirectToAction("Index");
+                result =  serviceMuebleTV.CreateMuebleTV(Form);
+                if (result)
+                    messageResponse = "Cotizacion creada de forma exitosa";
+                else
+                    messageResponse = "Lo sentimos, no se pudo crear la cotizacion";
             }
-            catch
+            catch(Exception ex)
             {
-                return View();
+                messageResponse = ex.Message;
             }
+
+            return Json(messageResponse, JsonRequestBehavior.AllowGet);
+
+
         }
 
         // GET: MuebleTV/Edit/5
@@ -79,42 +89,5 @@ namespace APPCG.Controllers
             return View();
         }
 
-        // POST: MuebleTV/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: MuebleTV/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: MuebleTV/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

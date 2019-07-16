@@ -39,7 +39,7 @@ namespace APPCG.Repositories
 
         }
 
-        public Cotizacion GetCotizacionByEmail(String correoElectronico)
+        public Cotizacion GetCotizacionByEmail(int idCliente)
         {
 
             Cotizacion cotizacion = null;
@@ -50,7 +50,7 @@ namespace APPCG.Repositories
                 using (var db = new CG2019Entities())
                 {
 
-                    cotizacion = db.Cotizacion.Where(cot => cot.CorreoCliente == correoElectronico).FirstOrDefault();
+                    cotizacion = db.Cotizacion.Where(cot => cot.IdCliente == idCliente).FirstOrDefault();
 
 
                 }
@@ -68,9 +68,9 @@ namespace APPCG.Repositories
         }
 
 
-        public void CreateCotizacion(Cotizacion cotizacion)
+        public int CreateCotizacion(Cotizacion cotizacion)
         {
-
+            int idCotizacion = 0;
             try
             {
 
@@ -78,6 +78,8 @@ namespace APPCG.Repositories
                 {
 
                     db.Cotizacion.Add(cotizacion);
+                    db.SaveChanges();
+                    idCotizacion = cotizacion.IdOrden;
 
                 }
 
@@ -88,7 +90,7 @@ namespace APPCG.Repositories
 
                 throw ex;
             }
-
+            return idCotizacion;
 
         }
 
@@ -118,37 +120,37 @@ namespace APPCG.Repositories
 
         }
 
-        public void UpdateCotizacion(Cotizacion cotizacion, int idOrden)
-        {
+        //public void UpdateCotizacion(Cotizacion cotizacion, int idOrden)
+        //{
 
-            try
-            {
+        //    try
+        //    {
 
-                using (var db = new CG2019Entities())
-                {
+        //        using (var db = new CG2019Entities())
+        //        {
 
-                    Cotizacion cotizacion_por_actualizar = db.Cotizacion.Where(cot => cot.IdOrden == idOrden).FirstOrDefault();
-                    cotizacion_por_actualizar.DocumentoExcelProp = cotizacion.DocumentoExcelProp;
-                    cotizacion_por_actualizar.CorreoCliente = cotizacion.CorreoCliente;
-                    cotizacion_por_actualizar.Estado = cotizacion.Estado;
-                    cotizacion_por_actualizar.FechaCreacion = cotizacion.FechaCreacion;
-                    cotizacion_por_actualizar.FechaeEntrega = cotizacion.FechaeEntrega;
-                    cotizacion_por_actualizar.PDF = cotizacion.PDF;
-                    db.SaveChanges();
-
-
-                }
+        //            Cotizacion cotizacion_por_actualizar = db.Cotizacion.Where(cot => cot.IdOrden == idOrden).FirstOrDefault();
+        //            cotizacion_por_actualizar.DocumentoExcelProp = cotizacion.DocumentoExcelProp;
+        //            cotizacion_por_actualizar.CorreoCliente = cotizacion.CorreoCliente;
+        //            cotizacion_por_actualizar.Estado = cotizacion.Estado;
+        //            cotizacion_por_actualizar.FechaCreacion = cotizacion.FechaCreacion;
+        //            cotizacion_por_actualizar.FechaeEntrega = cotizacion.FechaeEntrega;
+        //            cotizacion_por_actualizar.PDF = cotizacion.PDF;
+        //            db.SaveChanges();
 
 
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+        //        }
 
 
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw ex;
+        //    }
+
+
+        //}
 
 
 

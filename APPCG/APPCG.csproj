@@ -300,15 +300,6 @@
     </Compile>
     <Compile Include="Helpers\AccountHelper.cs" />
     <Compile Include="Helpers\ExcelHelper.cs" />
-    <Compile Include="Models\AtributosLavadero.cs">
-      <DependentUpon>GCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AtributosLino.cs">
-      <DependentUpon>GCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AtributosMuebleTV.cs">
-      <DependentUpon>GCModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Buscar_Mueble_Con_IdCotizacion_Cliente_Result.cs">
       <DependentUpon>GCModel.tt</DependentUpon>
     </Compile>
@@ -319,6 +310,9 @@
       <DependentUpon>GCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClienteViewModel.cs" />
+    <Compile Include="Models\Closet.cs">
+      <DependentUpon>GCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cotizacion.cs">
       <DependentUpon>GCModel.tt</DependentUpon>
     </Compile>
@@ -344,28 +338,33 @@
     <Compile Include="Models\Lino.cs">
       <DependentUpon>GCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MuebleTVViewModel.cs" />
-    <Compile Include="Models\MuebleViewModel.cs" />
-    <Compile Include="Models\LinoViewModel.cs" />
     <Compile Include="Models\Mueble.cs">
+      <DependentUpon>GCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MuebleRopas.cs">
       <DependentUpon>GCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MuebleTV.cs">
       <DependentUpon>GCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MuebleTVViewModel.cs" />
+    <Compile Include="Models\MuebleViewModel.cs" />
+    <Compile Include="Models\LinoViewModel.cs" />
+    <Compile Include="Models\Vestier.cs">
+      <DependentUpon>GCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AtributosLavaderoRepository.cs" />
     <Compile Include="Repositories\LavaderoRepository.cs" />
     <Compile Include="Repositories\CotizacionRepository.cs" />
-    <Compile Include="Repositories\AtributoMuebleTVRepository.cs" />
-    <Compile Include="Repositories\AtributoLinoRepository.cs" />
     <Compile Include="Repositories\LinoRepository.cs" />
     <Compile Include="Repositories\MuebleTVRepository.cs" />
     <Compile Include="Repositories\MuebleRepository.cs" />
     <Compile Include="Repositories\ClienteRepository.cs" />
     <Compile Include="Services\ClienteService.cs" />
+    <Compile Include="Services\CotizacionService.cs" />
     <Compile Include="Services\ExcelService.cs" />
     <Compile Include="Services\Mailer.cs" />
+    <Compile Include="Services\MuebleTVService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

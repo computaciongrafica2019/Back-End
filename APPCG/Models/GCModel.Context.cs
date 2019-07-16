@@ -27,15 +27,15 @@ namespace APPCG.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AtributosLavadero> AtributosLavadero { get; set; }
-        public virtual DbSet<AtributosLino> AtributosLino { get; set; }
-        public virtual DbSet<AtributosMuebleTV> AtributosMuebleTV { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<Closet> Closet { get; set; }
         public virtual DbSet<Cotizacion> Cotizacion { get; set; }
         public virtual DbSet<Lavadero> Lavadero { get; set; }
         public virtual DbSet<Lino> Lino { get; set; }
         public virtual DbSet<Mueble> Mueble { get; set; }
+        public virtual DbSet<MuebleRopas> MuebleRopas { get; set; }
         public virtual DbSet<MuebleTV> MuebleTV { get; set; }
+        public virtual DbSet<Vestier> Vestier { get; set; }
     
         public virtual ObjectResult<Buscar_Mueble_Con_IdCotizacion_Result> Buscar_Mueble_Con_IdCotizacion(Nullable<int> idCotizacion)
         {

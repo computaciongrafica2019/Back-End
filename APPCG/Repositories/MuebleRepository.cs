@@ -34,7 +34,7 @@ namespace APPCG.Repositories
         }
 
 
-        public Mueble GetMueble(int idMueble)
+        public Mueble GetMuebleTipo(string TipoMueble)
         {
 
             Mueble mueble = null;
@@ -45,7 +45,7 @@ namespace APPCG.Repositories
                 using (var db = new CG2019Entities())
                 {
 
-                    mueble = db.Mueble.Where(mue => mue.IdMueble == idMueble).FirstOrDefault();
+                    mueble = db.Mueble.Where(mue => mue.TipoMueble == TipoMueble).FirstOrDefault();
 
                 }
 

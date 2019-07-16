@@ -1,35 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="CG2019Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="AtributosLavadero">
-    <Key>
-      <PropertyRef Name="Nombre" />
-    </Key>
-    <Property Name="Nombre" Type="varchar" MaxLength="120" Nullable="false" />
-    <Property Name="Tipo" Type="varchar" MaxLength="120" Nullable="false" />
-    <Property Name="ValorMaximo" Type="int" />
-    <Property Name="ValorMinimo" Type="int" />
-    <Property Name="Valores" Type="varchar" MaxLength="120" />
-  </EntityType>
-  <EntityType Name="AtributosLino">
-    <Key>
-      <PropertyRef Name="Nombre" />
-    </Key>
-    <Property Name="Nombre" Type="varchar" MaxLength="120" Nullable="false" />
-    <Property Name="Tipo" Type="varchar" MaxLength="120" Nullable="false" />
-    <Property Name="ValorMaximo" Type="int" />
-    <Property Name="ValorMinimo" Type="int" />
-    <Property Name="Valores" Type="varchar" MaxLength="120" />
-  </EntityType>
-  <EntityType Name="AtributosMuebleTV">
-    <Key>
-      <PropertyRef Name="Nombre" />
-    </Key>
-    <Property Name="Nombre" Type="varchar" MaxLength="120" Nullable="false" />
-    <Property Name="Tipo" Type="varchar" MaxLength="120" Nullable="false" />
-    <Property Name="ValorMaximo" Type="int" />
-    <Property Name="ValorMinimo" Type="int" />
-    <Property Name="Valores" Type="varchar" MaxLength="120" />
-  </EntityType>
   <EntityType Name="Cliente">
     <Key>
       <PropertyRef Name="IdCliente" />
@@ -43,20 +13,37 @@
     <Property Name="Telefono" Type="numeric" Precision="20" Scale="0" Nullable="false" />
     <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="Closet">
+    <Key>
+      <PropertyRef Name="IdMueble" />
+    </Key>
+    <Property Name="IdMueble" Type="int" Nullable="false" />
+    <Property Name="Alto_Pared" Type="int" Nullable="false" />
+    <Property Name="Largo_Pared" Type="int" Nullable="false" />
+    <Property Name="Ancho_Pared" Type="int" Nullable="false" />
+    <Property Name="Distancia_Repisa" Type="int" Nullable="false" />
+    <Property Name="Largo_Cajones" Type="float" Nullable="false" />
+    <Property Name="Altura_Cajones" Type="int" Nullable="false" />
+    <Property Name="Filas_de_Cajones" Type="int" Nullable="false" />
+    <Property Name="Largo_Entrepaños" Type="int" Nullable="false" />
+    <Property Name="Columnas_de_Entrepaños" Type="int" Nullable="false" />
+    <Property Name="Filas_de_Entrepaños" Type="int" Nullable="false" />
+    <Property Name="Color_Repisa" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Color_Cajones" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Color_Entrepaños" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
   <EntityType Name="Cotizacion">
     <Key>
       <PropertyRef Name="IdOrden" />
     </Key>
-    <Property Name="IdOrden" Type="int" Nullable="false" />
-    <Property Name="DocumentoExcelProp" Type="varchar" MaxLength="320" />
-    <Property Name="PDF" Type="varchar" MaxLength="320" />
-    <Property Name="Estado" Type="varchar" MaxLength="10" />
+    <Property Name="IdOrden" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CotizacionPDF" Type="varchar" MaxLength="320" />
+    <Property Name="RutaModelosPDF" Type="varchar" MaxLength="320" />
+    <Property Name="Estado" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
     <Property Name="FechaeEntrega" Type="datetime" Nullable="false" />
     <Property Name="IdCliente" Type="int" Nullable="false" />
-    <Property Name="CorreoCliente" Type="varchar" MaxLength="40" Nullable="false" />
-    <Property Name="IdMueble" Type="int" Nullable="false" />
-    <Property Name="TipoMueble" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="IdMuebleTipo" Type="int" />
   </EntityType>
   <EntityType Name="Lavadero">
     <Key>
@@ -91,10 +78,25 @@
     <Key>
       <PropertyRef Name="IdMueble" />
     </Key>
-    <Property Name="IdMueble" Type="int" Nullable="false" />
-    <Property Name="IdOrden" Type="int" Nullable="false" />
+    <Property Name="IdMueble" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="320" />
+    <Property Name="Ruta_del_modelo_del_Excel" Type="varchar" MaxLength="320" />
+    <Property Name="Ruta_del_modelo_AutoDesk" Type="varchar" MaxLength="320" />
+    <Property Name="Ruta_de_una_imagen" Type="varchar" MaxLength="320" />
     <Property Name="TipoMueble" Type="varchar" MaxLength="60" Nullable="false" />
-    <Property Name="DocumentoExcelProp" Type="varchar" MaxLength="320" />
+  </EntityType>
+  <EntityType Name="MuebleRopas">
+    <Key>
+      <PropertyRef Name="IdMueble" />
+    </Key>
+    <Property Name="IdMueble" Type="int" Nullable="false" />
+    <Property Name="Alto" Type="int" Nullable="false" />
+    <Property Name="Largo" Type="int" Nullable="false" />
+    <Property Name="Ancho" Type="int" Nullable="false" />
+    <Property Name="Espesor_Madera" Type="int" Nullable="false" />
+    <Property Name="Color_Separadores" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Color_Puertas" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Color_Marco" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="MuebleTV">
     <Key>
@@ -109,7 +111,31 @@
     <Property Name="Entrepaños" Type="int" Nullable="false" />
     <Property Name="Color" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Cotizacio__TipoM__4F7CD00D">
+  <EntityType Name="Vestier">
+    <Key>
+      <PropertyRef Name="IdMueble" />
+    </Key>
+    <Property Name="IdMueble" Type="int" Nullable="false" />
+    <Property Name="Alto" Type="int" Nullable="false" />
+    <Property Name="Largo" Type="int" Nullable="false" />
+    <Property Name="Ancho" Type="int" Nullable="false" />
+    <Property Name="Entrepaños" Type="int" Nullable="false" />
+    <Property Name="Cajones" Type="int" Nullable="false" />
+    <Property Name="Color" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CLOSET_IDMUEBLE">
+    <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
+    <End Role="Closet" Type="Self.Closet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Mueble">
+        <PropertyRef Name="IdMueble" />
+      </Principal>
+      <Dependent Role="Closet">
+        <PropertyRef Name="IdMueble" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COTIZACION_IDCLIENTE">
     <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
     <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
     <ReferentialConstraint>
@@ -121,7 +147,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Lavadero__Distan__619B8048">
+  <Association Name="FK_LAVADERO_IDMUEBLE">
     <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
     <End Role="Lavadero" Type="Self.Lavadero" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -133,7 +159,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Lino__ColorTabla__6C190EBB">
+  <Association Name="FK_LINO_IDMUEBLE">
     <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
     <End Role="Lino" Type="Self.Lino" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -145,19 +171,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Mueble__IdOrden__534D60F1">
-    <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="1" />
-    <End Role="Mueble" Type="Self.Mueble" Multiplicity="*" />
+  <Association Name="FK_MUEBLE_ROPAS_IDMUEBLE">
+    <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
+    <End Role="MuebleRopas" Type="Self.MuebleRopas" Multiplicity="0..1" />
     <ReferentialConstraint>
-      <Principal Role="Cotizacion">
-        <PropertyRef Name="IdOrden" />
+      <Principal Role="Mueble">
+        <PropertyRef Name="IdMueble" />
       </Principal>
-      <Dependent Role="Mueble">
-        <PropertyRef Name="IdOrden" />
+      <Dependent Role="MuebleRopas">
+        <PropertyRef Name="IdMueble" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__MuebleTV__Color__75A278F5">
+  <Association Name="FK_MUEBLETV_IDMUEBLE">
     <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
     <End Role="MuebleTV" Type="Self.MuebleTV" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -169,41 +195,55 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="Buscar_Mueble_Con_IdCotizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="IdCotizacion" Type="int" Mode="In" />
-  </Function>
-  <Function Name="Buscar_Mueble_Con_IdCotizacion_Cliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="IdCotizacionCl" Type="int" Mode="In" />
-  </Function>
+  <Association Name="FK_VESTIER2_IDMUEBLE">
+    <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
+    <End Role="Vestier" Type="Self.Vestier" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Mueble">
+        <PropertyRef Name="IdMueble" />
+      </Principal>
+      <Dependent Role="Vestier">
+        <PropertyRef Name="IdMueble" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="CG2019ModelStoreContainer">
-    <EntitySet Name="AtributosLavadero" EntityType="Self.AtributosLavadero" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AtributosLino" EntityType="Self.AtributosLino" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AtributosMuebleTV" EntityType="Self.AtributosMuebleTV" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Closet" EntityType="Self.Closet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lavadero" EntityType="Self.Lavadero" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lino" EntityType="Self.Lino" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Mueble" EntityType="Self.Mueble" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MuebleRopas" EntityType="Self.MuebleRopas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MuebleTV" EntityType="Self.MuebleTV" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Cotizacio__TipoM__4F7CD00D" Association="Self.FK__Cotizacio__TipoM__4F7CD00D">
+    <EntitySet Name="Vestier" EntityType="Self.Vestier" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CLOSET_IDMUEBLE" Association="Self.FK_CLOSET_IDMUEBLE">
+      <End Role="Mueble" EntitySet="Mueble" />
+      <End Role="Closet" EntitySet="Closet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COTIZACION_IDCLIENTE" Association="Self.FK_COTIZACION_IDCLIENTE">
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="Cotizacion" EntitySet="Cotizacion" />
     </AssociationSet>
-    <AssociationSet Name="FK__Lavadero__Distan__619B8048" Association="Self.FK__Lavadero__Distan__619B8048">
+    <AssociationSet Name="FK_LAVADERO_IDMUEBLE" Association="Self.FK_LAVADERO_IDMUEBLE">
       <End Role="Mueble" EntitySet="Mueble" />
       <End Role="Lavadero" EntitySet="Lavadero" />
     </AssociationSet>
-    <AssociationSet Name="FK__Lino__ColorTabla__6C190EBB" Association="Self.FK__Lino__ColorTabla__6C190EBB">
+    <AssociationSet Name="FK_LINO_IDMUEBLE" Association="Self.FK_LINO_IDMUEBLE">
       <End Role="Mueble" EntitySet="Mueble" />
       <End Role="Lino" EntitySet="Lino" />
     </AssociationSet>
-    <AssociationSet Name="FK__Mueble__IdOrden__534D60F1" Association="Self.FK__Mueble__IdOrden__534D60F1">
-      <End Role="Cotizacion" EntitySet="Cotizacion" />
+    <AssociationSet Name="FK_MUEBLE_ROPAS_IDMUEBLE" Association="Self.FK_MUEBLE_ROPAS_IDMUEBLE">
       <End Role="Mueble" EntitySet="Mueble" />
+      <End Role="MuebleRopas" EntitySet="MuebleRopas" />
     </AssociationSet>
-    <AssociationSet Name="FK__MuebleTV__Color__75A278F5" Association="Self.FK__MuebleTV__Color__75A278F5">
+    <AssociationSet Name="FK_MUEBLETV_IDMUEBLE" Association="Self.FK_MUEBLETV_IDMUEBLE">
       <End Role="Mueble" EntitySet="Mueble" />
       <End Role="MuebleTV" EntitySet="MuebleTV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VESTIER2_IDMUEBLE" Association="Self.FK_VESTIER2_IDMUEBLE">
+      <End Role="Mueble" EntitySet="Mueble" />
+      <End Role="Vestier" EntitySet="Vestier" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
