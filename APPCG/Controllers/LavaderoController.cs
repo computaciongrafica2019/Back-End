@@ -40,7 +40,7 @@ namespace APPCG.Controllers
             var modelo = repository.GetAll();
             List<LavaderoViewModel> list = new List<LavaderoViewModel>();
 
-            foreach (var elemento in list)
+            foreach (var elemento in modelo)
             {
                 LavaderoViewModel lavadero = new LavaderoViewModel();
                 lavadero.Alto = elemento.Alto;

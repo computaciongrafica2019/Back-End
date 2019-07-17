@@ -33,7 +33,7 @@ namespace APPCG.Services
             Cotizacion cotizacion = null;
             //Obtener Tipo Mueble
             Mueble muebleTIPO = null;
-            muebleTIPO = muebleRepository.GetMuebleTipo("MesaTv");
+            muebleTIPO = muebleRepository.GetMuebleTipo("MuebleTv");
 
             cliente.CorreoElectronico = model.CorreoElectronico;
             cliente.Apellidos = model.Apellidos;
@@ -59,6 +59,7 @@ namespace APPCG.Services
             muebleTV.Color = model.Color;
             muebleTV.Entrepaños = model.Entrepaños;
             muebleTV.Largo = model.Largo;
+            muebleTV.IdMueble = model.IdMueble;
             muebleTV.NumSeparaciones = model.NumSeparaciones;
             muebleTV.NumSeparacionesConPuerta = model.NumSeparacionesConPuerta;
             muebleTV.Mueble = muebleTIPO;

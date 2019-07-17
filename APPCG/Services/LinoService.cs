@@ -50,7 +50,8 @@ namespace APPCG.Services
             lino.ColorBase = linoModel.ColorBase;
             lino.ColorTabla = linoModel.ColorTabla;
             lino.Columnas = linoModel.Columnas;
-            lino.EntrepañosC1 = linoModel.EntrepañosC2;
+            lino.EntrepañosC1 = linoModel.EntrepañosC1;
+            lino.EntrepañosC2 = linoModel.EntrepañosC2;
             lino.Largo = linoModel.Largo;
             lino.Mueble = mueble;
 
