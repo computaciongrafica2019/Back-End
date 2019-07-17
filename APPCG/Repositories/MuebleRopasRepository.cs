@@ -1,17 +1,16 @@
-﻿using System;
+﻿using APPCG.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using APPCG.Models;
-
 
 namespace APPCG.Repositories
 {
-    public class LinoRepository
+    public class MuebleRopasRepository
     {
-        public IEnumerable<Lino> GetAll()
+        public IEnumerable<MuebleRopas> GetAll()
         {
-            IEnumerable<Lino> linos = null;
+            IEnumerable<MuebleRopas> muebles = null;
 
             try
             {
@@ -19,7 +18,7 @@ namespace APPCG.Repositories
                 using (var db = new CG2019Entities())
                 {
 
-                    linos = db.Lino.ToList();
+                    muebles = db.MuebleRopas.ToList();
 
                 }
 
@@ -29,14 +28,13 @@ namespace APPCG.Repositories
             {
                 throw ex;
             }
-            return linos;
+            return muebles;
         }
 
-
-        public Lino GetLino(int idMueble)
+        public MuebleRopas GetMuebleTV(int idMueble)
         {
 
-            Lino lino = null;
+            MuebleRopas mueble = null;
 
             try
             {
@@ -44,7 +42,7 @@ namespace APPCG.Repositories
                 using (var db = new CG2019Entities())
                 {
 
-                    lino = db.Lino.Where(lin => lin.IdMueble == idMueble).FirstOrDefault();
+                    mueble = db.MuebleRopas.Where(mue => mue.IdMueble == idMueble).FirstOrDefault();
 
                 }
 
@@ -56,22 +54,22 @@ namespace APPCG.Repositories
             }
 
 
-            return lino;
+            return mueble;
 
         }
 
-        public int CreateLino(Lino lino)
+        public int CreateMuebleTV(MuebleRopas mueble)
         {
-            int id = 0;
+            int idMueble = 0;
             try
             {
 
                 using (var db = new CG2019Entities())
                 {
 
-                    db.Lino.Add(lino);
+                    db.MuebleRopas.Add(mueble);
                     db.SaveChanges();
-                    id = lino.IdMueble;
+                    idMueble= mueble.IdMueble;
                 }
 
 
@@ -82,7 +80,8 @@ namespace APPCG.Repositories
                 throw ex;
             }
 
-            return id;
+            return idMueble;
         }
+
     }
 }

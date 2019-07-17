@@ -9,79 +9,74 @@ using System.Web.Mvc;
 
 namespace APPCG.Controllers
 {
-    public class LinoController : Controller
+    public class MuebleRopasController : Controller
     {
-        private LinoRepository repository { get { return new LinoRepository(); } }
-        private LinoService linoService { get { return new LinoService(); } }
+        private MuebleRopasRepository repository { get { return new MuebleRopasRepository(); } }
 
+        private MuebleRopasService serviceMuebleTV { get { return new MuebleRopasService(); } }
 
-        // GET: Lino
+        // GET: MuebleRopas
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Lino/Details/5
+        // GET: MuebleRopas/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Lino/GetAll
-
+        // GET: MuebleRopas/GetAll
         public JsonResult GetAll()
         {
-            var modelo = repository.GetAll();
-            List<LinoViewModel> list = new List<LinoViewModel>();
+            var model = repository.GetAll();
+            List<MuebleRopas> list = new List<MuebleRopas>();
 
-            foreach (var element in modelo)
+            foreach(var item in model)
             {
-                LinoViewModel lino = new LinoViewModel();
-                lino.IdMueble = element.IdMueble;
-                lino.Alto = element.Alto;
-                lino.Ancho = element.Ancho;
-                lino.ColorBase = element.ColorBase;
-                lino.ColorTabla = element.ColorTabla;
-                lino.Columnas = element.Columnas;
-                lino.EntrepañosC1 = element.EntrepañosC2;
-                lino.Largo = element.Largo;
-                list.Add(lino);
+                MuebleRopas mueble = new MuebleRopas();
+                mueble.Alto = item.Alto;
+                mueble.Ancho = item.Ancho;
+                mueble.Color_Marco = item.Color_Marco;
+                mueble.Color_Puertas = item.Color_Puertas;
+                mueble.Color_Separadores = item.Color_Separadores;
+                mueble.Espesor_Madera = item.Espesor_Madera;
+                mueble.Largo = item.Largo;
+                list.Add(mueble);
             }
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: Lino/Create
+        // POST: MuebleRopas/Create
         [HttpPost]
-        public JsonResult Create(LinoViewModel form)
+        public ActionResult Create(MuebleRopasViewModel form)
         {
             bool result = false;
             string messageResponse = "";
-
             try
             {
-                result = linoService.CreateLino(form);
+                result = serviceMuebleTV.CreateMuebleRopas(form);
                 if (result)
                     messageResponse = "Cotizacion creada de forma exitosa";
                 else
                     messageResponse = "Lo sentimos, no se pudo crear la cotizacion";
-
-                
             }
             catch (Exception ex)
             {
                 messageResponse = ex.Message;
-                
             }
+
             return Json(messageResponse, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Lino/Edit/5
+        // GET: MuebleRopas/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Lino/Edit/5
+        // POST: MuebleRopas/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -97,13 +92,13 @@ namespace APPCG.Controllers
             }
         }
 
-        // GET: Lino/Delete/5
+        // GET: MuebleRopas/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Lino/Delete/5
+        // POST: MuebleRopas/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

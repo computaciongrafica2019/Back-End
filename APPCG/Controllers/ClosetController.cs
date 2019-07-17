@@ -9,79 +9,80 @@ using System.Web.Mvc;
 
 namespace APPCG.Controllers
 {
-    public class LinoController : Controller
+    public class ClosetController : Controller
     {
-        private LinoRepository repository { get { return new LinoRepository(); } }
-        private LinoService linoService { get { return new LinoService(); } }
+        private ClosetRepository repository = new ClosetRepository();
+        private ClosetService closetService { get { return new ClosetService(); } }
 
-
-        // GET: Lino
+        // GET: Closet
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: Lino/Details/5
+        // GET: Closet/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Lino/GetAll
-
+        // GET: Closet/GetAll
         public JsonResult GetAll()
         {
-            var modelo = repository.GetAll();
-            List<LinoViewModel> list = new List<LinoViewModel>();
+            var model = repository.GetAll();
+            List<ClosetViewModel> list = new List<ClosetViewModel>();
 
-            foreach (var element in modelo)
+            foreach (var item in model)
             {
-                LinoViewModel lino = new LinoViewModel();
-                lino.IdMueble = element.IdMueble;
-                lino.Alto = element.Alto;
-                lino.Ancho = element.Ancho;
-                lino.ColorBase = element.ColorBase;
-                lino.ColorTabla = element.ColorTabla;
-                lino.Columnas = element.Columnas;
-                lino.EntrepañosC1 = element.EntrepañosC2;
-                lino.Largo = element.Largo;
-                list.Add(lino);
+                ClosetViewModel mueble = new ClosetViewModel();
+                mueble.Alto_Pared = item.Alto_Pared;
+                mueble.Altura_Cajones = item.Altura_Cajones;
+                mueble.Ancho_Pared = item.Ancho_Pared;
+                mueble.Color_Cajones = item.Color_Cajones;
+                mueble.Color_Entrepaños = item.Color_Entrepaños;
+                mueble.Color_Repisa = item.Color_Repisa;
+                mueble.Columnas_de_Entrepaños = item.Columnas_de_Entrepaños;
+                mueble.Distancia_Repisa = item.Distancia_Repisa;
+                mueble.Filas_de_Cajones = item.Filas_de_Cajones;
+                mueble.Filas_de_Entrepaños = item.Filas_de_Entrepaños;
+                mueble.Largo_Cajones = item.Largo_Cajones;
+                mueble.Largo_Entrepaños = item.Largo_Entrepaños;
+                mueble.Largo_Pared = item.Largo_Pared;
+                list.Add(mueble);
             }
+
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        // POST: Lino/Create
+        // POST: Closet/Create
         [HttpPost]
-        public JsonResult Create(LinoViewModel form)
+        public JsonResult Create(ClosetViewModel form)
         {
             bool result = false;
             string messageResponse = "";
-
             try
             {
-                result = linoService.CreateLino(form);
+                result = closetService.CreateCloset(form);
                 if (result)
                     messageResponse = "Cotizacion creada de forma exitosa";
                 else
                     messageResponse = "Lo sentimos, no se pudo crear la cotizacion";
-
-                
             }
             catch (Exception ex)
             {
                 messageResponse = ex.Message;
-                
             }
+
             return Json(messageResponse, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Lino/Edit/5
+        // GET: Closet/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Lino/Edit/5
+        // POST: Closet/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -97,13 +98,13 @@ namespace APPCG.Controllers
             }
         }
 
-        // GET: Lino/Delete/5
+        // GET: Closet/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Lino/Delete/5
+        // POST: Closet/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
