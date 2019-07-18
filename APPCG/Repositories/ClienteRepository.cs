@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using APPCG.Models;
@@ -73,11 +74,18 @@ namespace APPCG.Repositories
 
                 using (var db = new CG2019Entities())
                 {
-
-                   db.Cliente.Add(cliente);
-                   db.SaveChanges();
-                   idCliente = cliente.IdCliente;
-
+                    var exist = db.Cliente.SqlQuery("SELECT * FROM Cliente WHERE NombreUsuario = @userName", new SqlParameter("@userName", cliente.NombreUsuario)).FirstOrDefault();
+                    if (exist != null)
+                    {
+                        return exist.IdCliente;
+                    }
+                    else
+                    {
+                        db.Cliente.Add(cliente);
+                        db.SaveChanges();
+                        idCliente = cliente.IdCliente;
+                        return idCliente;
+                    }
 
                 }
 
@@ -89,7 +97,7 @@ namespace APPCG.Repositories
                 throw ex;
             }
 
-            return idCliente;
+            
         }
 
 
