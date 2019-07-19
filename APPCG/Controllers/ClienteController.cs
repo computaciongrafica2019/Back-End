@@ -9,6 +9,7 @@ using APPCG.Repositories;
 using APPCG.Helpers;
 using System.Security.Cryptography;
 using System.Web.Http;
+using Inventor;
 
 namespace APPCG.Controllers
 {
@@ -62,6 +63,51 @@ namespace APPCG.Controllers
             return Json(model, JsonRequestBehavior.AllowGet);
 
         }
+
+        public JsonResult OpenInventor()
+        {
+
+            Inventor.Application m_inventorApp = null;
+
+            //Instantiate a variable with Inventor.Application object.
+            //It should have a scope throughout this Class
+            //Inventor.Application oApp = (Inventor.Application)System.Runtime.
+            //InteropServices.Marshal.GetActiveObject("Inventor.Application");
+
+            // Try to get an active instance of Inventor
+            try
+            {
+                //m_inventorApp =
+                //System.Runtime.InteropServices.Marshal.GetActiveObject("Inventor.Application")
+                //as Inventor.Application;
+                Type inventorAppType =
+                System.Type.GetTypeFromProgID("Inventor.Application");
+                m_inventorApp = System.Activator.CreateInstance(inventorAppType) as
+                Inventor.Application;
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            // If not active, create a new Inventor session
+            //if (m_inventorApp == null)
+            //{
+
+            //}
+
+
+            //"‪C:\\Users\\hsmartineza\\Documents\\Test.ipt"
+            Document partDocument;
+            partDocument =
+            m_inventorApp.Documents.Open("‪",NameValueMap,false) as Document;
+            m_inventorApp.Quit();
+            var model = "exito";
+            return Json(model, JsonRequestBehavior.AllowGet);
+
+        }
+
 
 
 
