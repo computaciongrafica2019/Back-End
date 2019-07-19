@@ -48,6 +48,7 @@ namespace APPCG.Controllers
                 mueble.Largo_Cajones = item.Largo_Cajones;
                 mueble.Largo_Entrepaños = item.Largo_Entrepaños;
                 mueble.Largo_Pared = item.Largo_Pared;
+                mueble.IdMueble = item.IdMueble;
                 list.Add(mueble);
             }
 

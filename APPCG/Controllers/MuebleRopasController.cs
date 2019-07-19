@@ -31,11 +31,11 @@ namespace APPCG.Controllers
         public JsonResult GetAll()
         {
             var model = repository.GetAll();
-            List<MuebleRopas> list = new List<MuebleRopas>();
+            List<MuebleRopasViewModel> list = new List<MuebleRopasViewModel>();
 
             foreach(var item in model)
             {
-                MuebleRopas mueble = new MuebleRopas();
+                MuebleRopasViewModel mueble = new MuebleRopasViewModel();
                 mueble.Alto = item.Alto;
                 mueble.Ancho = item.Ancho;
                 mueble.Color_Marco = item.Color_Marco;
@@ -43,6 +43,7 @@ namespace APPCG.Controllers
                 mueble.Color_Separadores = item.Color_Separadores;
                 mueble.Espesor_Madera = item.Espesor_Madera;
                 mueble.Largo = item.Largo;
+                mueble.IdMueble = item.IdMueble;
                 list.Add(mueble);
             }
             return Json(list, JsonRequestBehavior.AllowGet);
