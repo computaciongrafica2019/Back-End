@@ -58,6 +58,7 @@ namespace APPCG.Services
             closet.Largo_Cajones = model.Largo_Cajones;
             closet.Largo_Entrepaños = model.Largo_Entrepaños;
             closet.Largo_Pared = model.Largo_Pared;
+            closet.IdMueble = model.IdMueble;
             closet.Mueble = muebleT;
 
             int idMuebleCreado = repository.CreateCloset(closet);
