@@ -9,7 +9,7 @@ using APPCG.Repositories;
 using APPCG.Helpers;
 using System.Security.Cryptography;
 using System.Web.Http;
-using Inventor;
+//using Inventor;
 
 namespace APPCG.Controllers
 {
@@ -64,7 +64,7 @@ namespace APPCG.Controllers
 
         }
 
-        public JsonResult OpenInventor()
+        /*public JsonResult OpenInventor()
         {
 
             Inventor.Application m_inventorApp = null;
@@ -106,7 +106,7 @@ namespace APPCG.Controllers
             var model = "exito";
             return Json(model, JsonRequestBehavior.AllowGet);
 
-        }
+        }*/
 
 
 
