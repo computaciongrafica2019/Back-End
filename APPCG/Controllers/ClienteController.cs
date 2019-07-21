@@ -101,7 +101,7 @@ namespace APPCG.Controllers
             //"‪C:\\Users\\hsmartineza\\Documents\\Test.ipt"
             Document partDocument;
             partDocument =
-            m_inventorApp.Documents.Open("‪",NameValueMap,false) as Document;
+            m_inventorApp.Documents.Open("‪",false) as Document;
             m_inventorApp.Quit();
             var model = "exito";
             return Json(model, JsonRequestBehavior.AllowGet);
