@@ -1,5 +1,6 @@
 ﻿using APPCG.Models;
 using APPCG.Repositories;
+using APPCG.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,9 @@ namespace APPCG.Controllers
     public class MuebleController : Controller
     {
         private MuebleRepository repository = new MuebleRepository();
+
+        private MuebleService muebleService { get { return new MuebleService(); } }
+
         // GET: Mueble
         public ActionResult Index()
         {
@@ -26,19 +30,10 @@ namespace APPCG.Controllers
         // GET: Mueble/GetAll
         public JsonResult GetAll()
         {
-            var model = repository.GetAll();
-            List<MuebleViewModel> list = new List<MuebleViewModel>();
+            var model = muebleService.GetAll();
 
-            //foreach (var item in model)
-            //{
-            //    MuebleViewModel mueble = new MuebleViewModel();
-            //    mueble.DocumentoExcelProp = item.DocumentoExcelProp;
-            //    mueble.IdMueble = item.IdMueble;
-            //    mueble.IdOrden = item.IdOrden;
-            //    mueble.TipoMueble = item.TipoMueble;
-            //    list.Add(mueble);
-            //}
-            return Json(list, JsonRequestBehavior.AllowGet);
+      
+            return Json(model, JsonRequestBehavior.AllowGet);
 
 
         }

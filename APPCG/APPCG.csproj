@@ -402,6 +402,7 @@
     <Compile Include="Services\ExcelService.cs" />
     <Compile Include="Services\LinoService.cs" />
     <Compile Include="Services\MuebleRopasService.cs" />
+    <Compile Include="Services\MuebleService.cs" />
     <Compile Include="Services\VestierService.cs" />
     <Compile Include="Services\Mailer.cs" />
     <Compile Include="Services\LavaderoService.cs" />
