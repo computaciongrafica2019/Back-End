@@ -300,6 +300,24 @@
     </Compile>
     <Compile Include="Helpers\AccountHelper.cs" />
     <Compile Include="Helpers\ExcelHelper.cs" />
+    <Compile Include="Models\AtributosCloset.cs">
+      <DependentUpon>GCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AtributosLavadero.cs">
+      <DependentUpon>GCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AtributosLino.cs">
+      <DependentUpon>GCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AtributosMuebleRopas.cs">
+      <DependentUpon>GCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AtributosMuebleTV.cs">
+      <DependentUpon>GCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AtributosVestier.cs">
+      <DependentUpon>GCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Buscar_Mueble_Con_IdCotizacion_Cliente_Result.cs">
       <DependentUpon>GCModel.tt</DependentUpon>
     </Compile>

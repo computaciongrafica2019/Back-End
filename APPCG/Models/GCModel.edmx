@@ -5,6 +5,66 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="CG2019Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AtributosCloset">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="ValorMaximo" Type="float" />
+          <Property Name="ValorMinimo" Type="float" />
+          <Property Name="Valores" Type="varchar" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="AtributosLavadero">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="ValorMaximo" Type="int" />
+          <Property Name="ValorMinimo" Type="int" />
+          <Property Name="Valores" Type="varchar" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="AtributosLino">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="ValorMaximo" Type="int" />
+          <Property Name="ValorMinimo" Type="int" />
+          <Property Name="Valores" Type="varchar" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="AtributosMuebleRopas">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="ValorMaximo" Type="int" />
+          <Property Name="ValorMinimo" Type="int" />
+          <Property Name="Valores" Type="varchar" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="AtributosMuebleTV">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="ValorMaximo" Type="int" />
+          <Property Name="ValorMinimo" Type="int" />
+          <Property Name="Valores" Type="varchar" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="AtributosVestier">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="ValorMaximo" Type="int" />
+          <Property Name="ValorMinimo" Type="int" />
+          <Property Name="Valores" Type="varchar" MaxLength="120" />
+        </EntityType>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="IdCliente" />
@@ -213,6 +273,12 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CG2019ModelStoreContainer">
+          <EntitySet Name="AtributosCloset" EntityType="Self.AtributosCloset" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AtributosLavadero" EntityType="Self.AtributosLavadero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AtributosLino" EntityType="Self.AtributosLino" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AtributosMuebleRopas" EntityType="Self.AtributosMuebleRopas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AtributosMuebleTV" EntityType="Self.AtributosMuebleTV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AtributosVestier" EntityType="Self.AtributosVestier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Closet" EntityType="Self.Closet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
@@ -299,6 +365,12 @@
             <End Role="Mueble" EntitySet="Mueble" />
             <End Role="Vestier" EntitySet="Vestier" />
           </AssociationSet>
+          <EntitySet Name="AtributosCloset" EntityType="CG2019Model.AtributosCloset" />
+          <EntitySet Name="AtributosLavadero" EntityType="CG2019Model.AtributosLavadero" />
+          <EntitySet Name="AtributosLino" EntityType="CG2019Model.AtributosLino" />
+          <EntitySet Name="AtributosMuebleRopas" EntityType="CG2019Model.AtributosMuebleRopas" />
+          <EntitySet Name="AtributosMuebleTV" EntityType="CG2019Model.AtributosMuebleTV" />
+          <EntitySet Name="AtributosVestier" EntityType="CG2019Model.AtributosVestier" />
         </EntityContainer>
         <ComplexType Name="Buscar_Mueble_Con_IdCotizacion_Result">
           <Property Type="Int32" Name="IdOrden" Nullable="false" />
@@ -555,6 +627,66 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="AtributosCloset">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="ValorMaximo" Type="Double" />
+          <Property Name="ValorMinimo" Type="Double" />
+          <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AtributosLavadero">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="ValorMaximo" Type="Int32" />
+          <Property Name="ValorMinimo" Type="Int32" />
+          <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AtributosLino">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="ValorMaximo" Type="Int32" />
+          <Property Name="ValorMinimo" Type="Int32" />
+          <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AtributosMuebleRopas">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="ValorMaximo" Type="Int32" />
+          <Property Name="ValorMinimo" Type="Int32" />
+          <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AtributosMuebleTV">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="ValorMaximo" Type="Int32" />
+          <Property Name="ValorMinimo" Type="Int32" />
+          <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AtributosVestier">
+          <Key>
+            <PropertyRef Name="Nombre" />
+          </Key>
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="ValorMaximo" Type="Int32" />
+          <Property Name="ValorMinimo" Type="Int32" />
+          <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -690,6 +822,72 @@
                 <ScalarProperty Name="Largo" ColumnName="Largo" />
                 <ScalarProperty Name="Alto" ColumnName="Alto" />
                 <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AtributosCloset">
+            <EntityTypeMapping TypeName="CG2019Model.AtributosCloset">
+              <MappingFragment StoreEntitySet="AtributosCloset">
+                <ScalarProperty Name="Valores" ColumnName="Valores" />
+                <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+                <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AtributosLavadero">
+            <EntityTypeMapping TypeName="CG2019Model.AtributosLavadero">
+              <MappingFragment StoreEntitySet="AtributosLavadero">
+                <ScalarProperty Name="Valores" ColumnName="Valores" />
+                <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+                <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AtributosLino">
+            <EntityTypeMapping TypeName="CG2019Model.AtributosLino">
+              <MappingFragment StoreEntitySet="AtributosLino">
+                <ScalarProperty Name="Valores" ColumnName="Valores" />
+                <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+                <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AtributosMuebleRopas">
+            <EntityTypeMapping TypeName="CG2019Model.AtributosMuebleRopas">
+              <MappingFragment StoreEntitySet="AtributosMuebleRopas">
+                <ScalarProperty Name="Valores" ColumnName="Valores" />
+                <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+                <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AtributosMuebleTV">
+            <EntityTypeMapping TypeName="CG2019Model.AtributosMuebleTV">
+              <MappingFragment StoreEntitySet="AtributosMuebleTV">
+                <ScalarProperty Name="Valores" ColumnName="Valores" />
+                <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+                <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AtributosVestier">
+            <EntityTypeMapping TypeName="CG2019Model.AtributosVestier">
+              <MappingFragment StoreEntitySet="AtributosVestier">
+                <ScalarProperty Name="Valores" ColumnName="Valores" />
+                <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+                <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

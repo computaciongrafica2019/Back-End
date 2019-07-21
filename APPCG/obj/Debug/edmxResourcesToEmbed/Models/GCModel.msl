@@ -133,5 +133,71 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AtributosCloset">
+      <EntityTypeMapping TypeName="CG2019Model.AtributosCloset">
+        <MappingFragment StoreEntitySet="AtributosCloset">
+          <ScalarProperty Name="Valores" ColumnName="Valores" />
+          <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+          <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AtributosLavadero">
+      <EntityTypeMapping TypeName="CG2019Model.AtributosLavadero">
+        <MappingFragment StoreEntitySet="AtributosLavadero">
+          <ScalarProperty Name="Valores" ColumnName="Valores" />
+          <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+          <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AtributosLino">
+      <EntityTypeMapping TypeName="CG2019Model.AtributosLino">
+        <MappingFragment StoreEntitySet="AtributosLino">
+          <ScalarProperty Name="Valores" ColumnName="Valores" />
+          <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+          <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AtributosMuebleRopas">
+      <EntityTypeMapping TypeName="CG2019Model.AtributosMuebleRopas">
+        <MappingFragment StoreEntitySet="AtributosMuebleRopas">
+          <ScalarProperty Name="Valores" ColumnName="Valores" />
+          <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+          <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AtributosMuebleTV">
+      <EntityTypeMapping TypeName="CG2019Model.AtributosMuebleTV">
+        <MappingFragment StoreEntitySet="AtributosMuebleTV">
+          <ScalarProperty Name="Valores" ColumnName="Valores" />
+          <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+          <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AtributosVestier">
+      <EntityTypeMapping TypeName="CG2019Model.AtributosVestier">
+        <MappingFragment StoreEntitySet="AtributosVestier">
+          <ScalarProperty Name="Valores" ColumnName="Valores" />
+          <ScalarProperty Name="ValorMinimo" ColumnName="ValorMinimo" />
+          <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

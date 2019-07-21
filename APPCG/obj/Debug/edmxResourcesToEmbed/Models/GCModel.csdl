@@ -44,6 +44,12 @@
       <End Role="Mueble" EntitySet="Mueble" />
       <End Role="Vestier" EntitySet="Vestier" />
     </AssociationSet>
+    <EntitySet Name="AtributosCloset" EntityType="CG2019Model.AtributosCloset" />
+    <EntitySet Name="AtributosLavadero" EntityType="CG2019Model.AtributosLavadero" />
+    <EntitySet Name="AtributosLino" EntityType="CG2019Model.AtributosLino" />
+    <EntitySet Name="AtributosMuebleRopas" EntityType="CG2019Model.AtributosMuebleRopas" />
+    <EntitySet Name="AtributosMuebleTV" EntityType="CG2019Model.AtributosMuebleTV" />
+    <EntitySet Name="AtributosVestier" EntityType="CG2019Model.AtributosVestier" />
   </EntityContainer>
   <ComplexType Name="Buscar_Mueble_Con_IdCotizacion_Result">
     <Property Type="Int32" Name="IdOrden" Nullable="false" />
@@ -300,4 +306,64 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="AtributosCloset">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="ValorMaximo" Type="Double" />
+    <Property Name="ValorMinimo" Type="Double" />
+    <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AtributosLavadero">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="ValorMaximo" Type="Int32" />
+    <Property Name="ValorMinimo" Type="Int32" />
+    <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AtributosLino">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="ValorMaximo" Type="Int32" />
+    <Property Name="ValorMinimo" Type="Int32" />
+    <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AtributosMuebleRopas">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="ValorMaximo" Type="Int32" />
+    <Property Name="ValorMinimo" Type="Int32" />
+    <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AtributosMuebleTV">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="ValorMaximo" Type="Int32" />
+    <Property Name="ValorMinimo" Type="Int32" />
+    <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AtributosVestier">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="ValorMaximo" Type="Int32" />
+    <Property Name="ValorMinimo" Type="Int32" />
+    <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

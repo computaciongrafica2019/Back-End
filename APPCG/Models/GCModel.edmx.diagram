@@ -21,6 +21,12 @@
         <AssociationConnector Association="CG2019Model.FK_MUEBLE_ROPAS_IDMUEBLE" />
         <AssociationConnector Association="CG2019Model.FK_MUEBLETV_IDMUEBLE" />
         <AssociationConnector Association="CG2019Model.FK_VESTIER2_IDMUEBLE" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosCloset" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosLavadero" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosLino" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosMuebleRopas" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosMuebleTV" Width="1.5" PointX="9.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosVestier" Width="1.5" PointX="9.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

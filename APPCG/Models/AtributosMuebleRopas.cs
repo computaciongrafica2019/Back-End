@@ -12,17 +12,12 @@ namespace APPCG.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MuebleTV
+    public partial class AtributosMuebleRopas
     {
-        public int IdMueble { get; set; }
-        public int Alto { get; set; }
-        public int Largo { get; set; }
-        public int Ancho { get; set; }
-        public int NumSeparaciones { get; set; }
-        public int NumSeparacionesConPuerta { get; set; }
-        public int Entrepaños { get; set; }
-        public string Color { get; set; }
-    
-        public virtual Mueble Mueble { get; set; }
+        public string Nombre { get; set; }
+        public string Tipo { get; set; }
+        public Nullable<int> ValorMaximo { get; set; }
+        public Nullable<int> ValorMinimo { get; set; }
+        public string Valores { get; set; }
     }
 }
