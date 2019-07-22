@@ -24,6 +24,22 @@ namespace APPCG.Services
 
         public bool CreateVestier(VestierViewModel model)
         {
+            //Se crea el diccionario
+            Dictionary<string,string> myDict = new Dictionary<string, string>
+            {
+            { "I,4", (model.Ancho*0.01).ToString() },
+            { "I,3", (model.Alto*0.01).ToString() },
+            { "I,5", (model.Largo*0.01).ToString() },
+            { "I,7", model.Entrepaños.ToString() },
+            { "I,15", model.Cajones.ToString() },
+            };
+            String[] paths = new String[3];
+            paths[0] = @"\Planos.pdf";
+            paths[1] = @"\precios.xlsx";
+            paths[2] = @"\3d.pdf";
+
+
+
 
             //Se crea el cliente
 
@@ -65,9 +81,12 @@ namespace APPCG.Services
             vestier.Mueble = muebleTIPO;
 
             int idMuebleCreado = repository.CreateVestier(vestier);
-            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado);
+
+            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado, muebleTIPO, myDict, paths);
             if (cotizacion != null)
                 respuesta = true;
+
+
 
             return respuesta;
 

@@ -9,6 +9,7 @@ using APPCG.Repositories;
 using APPCG.Helpers;
 using System.Security.Cryptography;
 using System.Web.Http;
+using Inventor;
 //using Inventor;
 
 namespace APPCG.Controllers
@@ -64,7 +65,7 @@ namespace APPCG.Controllers
 
         }
 
-        /*public JsonResult OpenInventor()
+        public JsonResult OpenInventor()
         {
 
             Inventor.Application m_inventorApp = null;
@@ -86,7 +87,7 @@ namespace APPCG.Controllers
                 Inventor.Application;
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -99,14 +100,14 @@ namespace APPCG.Controllers
 
 
             //"‪C:\\Users\\hsmartineza\\Documents\\Test.ipt"
-            Document partDocument;
+            DrawingDocument partDocument;
             partDocument =
-            m_inventorApp.Documents.Open("‪",false) as Document;
+            m_inventorApp.Documents.Open(@"C:\Users\hsmartineza\Documents\CG2019\Models\MuebleLavadero\Workspaces\Workspace\MuebleLavadero.idw‪", false) as DrawingDocument;
             m_inventorApp.Quit();
             var model = "exito";
             return Json(model, JsonRequestBehavior.AllowGet);
 
-        }*/
+        }
 
 
 

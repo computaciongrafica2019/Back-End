@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ca81852cd7354020ae803d9ad7ea1e22" Name="Diagram1">
+        <EntityTypeShape EntityType="CG2019Model.Cliente" Width="1.5" PointX="5.75" PointY="1" />
+        <EntityTypeShape EntityType="CG2019Model.Closet" Width="1.5" PointX="3" PointY="1.875" />
+        <EntityTypeShape EntityType="CG2019Model.Cotizacion" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="CG2019Model.Lavadero" Width="1.5" PointX="3" PointY="10.125" />
+        <EntityTypeShape EntityType="CG2019Model.Lino" Width="1.5" PointX="3" PointY="20.75" />
+        <EntityTypeShape EntityType="CG2019Model.Mueble" Width="1.5" PointX="0.75" PointY="11.125" />
+        <EntityTypeShape EntityType="CG2019Model.MuebleRopas" Width="1.5" PointX="3" PointY="17.25" />
+        <EntityTypeShape EntityType="CG2019Model.MuebleTV" Width="1.5" PointX="3" PointY="6.625" />
+        <EntityTypeShape EntityType="CG2019Model.Vestier" Width="1.5" PointX="3" PointY="14" />
+        <AssociationConnector Association="CG2019Model.FK_COTIZACION_IDCLIENTE" />
+        <AssociationConnector Association="CG2019Model.FK_CLOSET_IDMUEBLE" />
+        <AssociationConnector Association="CG2019Model.FK_LAVADERO_IDMUEBLE" />
+        <AssociationConnector Association="CG2019Model.FK_LINO_IDMUEBLE" />
+        <AssociationConnector Association="CG2019Model.FK_MUEBLE_ROPAS_IDMUEBLE" />
+        <AssociationConnector Association="CG2019Model.FK_MUEBLETV_IDMUEBLE" />
+        <AssociationConnector Association="CG2019Model.FK_VESTIER2_IDMUEBLE" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosCloset" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosLavadero" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosLino" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosMuebleRopas" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosMuebleTV" Width="1.5" PointX="9.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CG2019Model.AtributosVestier" Width="1.5" PointX="9.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

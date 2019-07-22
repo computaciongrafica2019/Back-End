@@ -31,8 +31,9 @@ namespace APPCG.Services
                 }
 
                 //xlWorksheet.Cells["A3"].Value = "Hello world!";
+                xlApp.DisplayAlerts = false;
 
-                xlWorkbook.SaveAs(@"C:\ExcelTest\Test1.xlsx");
+                xlWorkbook.SaveAs(path);
                 xlWorkbook.Close();
                 xlApp.Quit();
 

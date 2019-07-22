@@ -67,6 +67,8 @@ namespace APPCG.Services
             lavadero.NumPuertas = model.NumPuertas;
             lavadero.Mueble = muebleTIPO;
 
+
+
             int idMuebleCreado = repository.CreateLavadero(lavadero);
             cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado);
             if (cotizacion != null)

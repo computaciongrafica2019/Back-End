@@ -9,13 +9,6 @@ namespace APPCG.Services
 {
     public class Mailer
     {
-        private String mailBody;
-        private String eErom;
-        private String eTo;
-        private String subject;
-        private String user;
-        private String password;
-        private String attachmentRoute;
 
         public string MailBody { get; set; }
         public string EFrom { get; set; }
@@ -23,16 +16,17 @@ namespace APPCG.Services
         public string Subject { get; set; }
         public string User { get; set; }
         public string Password { get; set; }
-        public string AttachmentRoute { get; set; }
+        public String[] AttachmentRoute { get; set; }
 
-        public Mailer(string mailBody, string eFrom, string eTo, string subject, string user, string password, string attachmentRoute)
+        public Mailer(string mailBody, string eTo, string subject, String[] attachmentRoute)
         {
+
             MailBody = mailBody;
-            EFrom = eErom;
+            EFrom = "cg2019i@outlook.com";
             ETo = eTo;
             Subject = subject;
-            User = user;
-            Password = password;
+            User = "cg2019i@outlook.com";
+            Password = "Cg123456789";
             AttachmentRoute = attachmentRoute;
 
         }
@@ -45,16 +39,20 @@ namespace APPCG.Services
 
             mail.From.Add(new MailboxAddress(this.EFrom));
             mail.To.Add(new MailboxAddress(this.ETo));
-            mail.Subject = this.subject;
+            mail.Subject = this.Subject;
 
             mailBody.TextBody = this.MailBody;
-            mailBody.Attachments.Add(this.AttachmentRoute);
+            
+            mailBody.Attachments.Add(this.AttachmentRoute[0]);
+            mailBody.Attachments.Add(this.AttachmentRoute[1]);
+
+
             mail.Body = mailBody.ToMessageBody();
 
             try
             {
                 client.Connect("smtp.office365.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-                client.Authenticate(this.user, this.password);
+                client.Authenticate(this.User, this.Password);
                 client.Send(mail);
                 client.Disconnect(true);
                 return "Mensaje Creado";

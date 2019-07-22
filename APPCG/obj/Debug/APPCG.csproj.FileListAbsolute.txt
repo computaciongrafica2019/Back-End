@@ -607,3 +607,4 @@ C:\Users\hsmartineza\Documents\Back-End\APPCG\obj\Debug\APPCG.csproj.CoreCompile
 C:\Users\hsmartineza\Documents\Back-End\APPCG\obj\Debug\APPCG.csproj.CopyComplete
 C:\Users\hsmartineza\Documents\Back-End\APPCG\obj\Debug\APPCG.dll
 C:\Users\hsmartineza\Documents\Back-End\APPCG\obj\Debug\APPCG.pdb
+C:\Users\hsmartineza\Documents\Back-End\APPCG\obj\Debug\Interop.InventorApprentice.dll
