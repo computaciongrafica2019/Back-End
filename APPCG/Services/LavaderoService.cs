@@ -24,7 +24,19 @@ namespace APPCG.Services
 
         public bool CreateLavadero(LavaderoViewModel model)
         {
+            Dictionary<string, string> myDict = new Dictionary<string, string>
+            {
+            { "C,4", (model.Largo*10).ToString() },
+            { "C,5", (model.Ancho*10).ToString() },
+            { "C,3", (model.Largo*10).ToString() },
+            { "C,7", model.Niveles.ToString() },
+            { "C,27", model.Columnas.ToString() },
+            };
 
+            String[] paths = new String[3];
+            paths[0] = @"\Workspaces\Workspace\MuebleLavadero\Planos.pdf";
+            paths[1] = @"\Workspaces\Workspace\MuebleLavadero\Excel.xlsx";
+            paths[2] = @"\Workspaces\Workspace\MuebleLavadero\3d.pdf";
             //Se crea el cliente
 
             bool respuesta = false;
@@ -61,16 +73,15 @@ namespace APPCG.Services
             lavadero.Columnas = model.Columnas;
             lavadero.DistanciaNivel = model.DistanciaNivel;
             lavadero.Espesor = model.Espesor;
-            lavadero.IdMueble = model.IdMueble;
             lavadero.Largo = model.Largo;
             lavadero.Niveles = model.Niveles;
             lavadero.NumPuertas = model.NumPuertas;
-            lavadero.Mueble = muebleTIPO;
+            //lavadero.Mueble = muebleTIPO;
 
 
 
             int idMuebleCreado = repository.CreateLavadero(lavadero);
-            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado);
+            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado,muebleTIPO,myDict,paths);
             if (cotizacion != null)
                 respuesta = true;
 

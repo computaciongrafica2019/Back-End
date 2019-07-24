@@ -18,6 +18,21 @@ namespace APPCG.Services
 
         public bool CreateLino(LinoViewModel linoModel)
         {
+
+            Dictionary<string, string> myDict = new Dictionary<string, string>
+            {
+            { "C,3", (linoModel.Alto*10).ToString() },
+            { "C,4", (linoModel.Largo*10).ToString() },
+            { "C,5", (linoModel.Ancho*10).ToString() },
+            { "C,7", linoModel.EntrepañosC1.ToString() },
+            { "C,27", linoModel.Columnas.ToString() },
+            };
+
+            String[] paths = new String[3];
+            paths[0] = @"\Planos.pdf";
+            paths[1] = @"\Excel.xlsx";
+            paths[2] = @"\3d.pdf";
+
             bool answer = false;
             Cliente client = new Cliente();
             Lino lino = new Lino();
@@ -56,7 +71,7 @@ namespace APPCG.Services
             lino.Mueble = mueble;
 
             int idMuebleCreado = repository.CreateLino(lino);
-            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado);
+            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado, mueble,myDict,paths);
             if (cotizacion != null)
                 answer = true;
 

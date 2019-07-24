@@ -74,7 +74,7 @@ namespace APPCG.Repositories
 
                 using (var db = new CG2019Entities())
                 {
-                    var exist = db.Cliente.SqlQuery("SELECT * FROM Cliente WHERE NombreUsuario = @userName", new SqlParameter("@userName", cliente.NombreUsuario)).FirstOrDefault();
+                    var exist = db.Cliente.Where(cli => cli.CorreoElectronico == cliente.CorreoElectronico || cli.NombreUsuario == cliente.NombreUsuario).FirstOrDefault();
                     if (exist != null)
                     {
                         return exist.IdCliente;

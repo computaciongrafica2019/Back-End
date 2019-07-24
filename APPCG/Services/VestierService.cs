@@ -33,6 +33,7 @@ namespace APPCG.Services
             { "I,7", model.Entrepaños.ToString() },
             { "I,15", model.Cajones.ToString() },
             };
+
             String[] paths = new String[3];
             paths[0] = @"\Planos.pdf";
             paths[1] = @"\precios.xlsx";

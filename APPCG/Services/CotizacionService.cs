@@ -111,8 +111,12 @@ namespace APPCG.Services
                 cotizacion.IdMuebleTipo = idMueble;
                 cotizacion.Estado = "Iniciado";
 
+                var pathC = string.Concat(cPath, @"\", idMueble.ToString(), @"\", muebleT.Ruta_del_modelo_AutoDesk, @" ", cPath, @"\", idMueble.ToString(), paths[0]);
+
                 CopyFolder(String.Concat(gPath, @"\", muebleT.TipoMueble), String.Concat(cPath, @"\" , idMueble.ToString()));
                 excel.Excel(string.Concat(cPath , @"\", idMueble.ToString(), @"\" ,muebleT.Ruta_del_modelo_del_Excel), myDict);
+
+                Console.WriteLine(pathC);
 
                 callInventor(batPath, string.Concat(cPath, @"\", idMueble.ToString(), @"\", muebleT.Ruta_del_modelo_AutoDesk, @" ", cPath, @"\", idMueble.ToString(), paths[0]));
 

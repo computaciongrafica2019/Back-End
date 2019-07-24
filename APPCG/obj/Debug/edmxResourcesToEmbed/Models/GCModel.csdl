@@ -147,7 +147,6 @@
     <Property Name="Espesor" Type="Int32" Nullable="false" />
     <Property Name="AltSobrePiso" Type="Int32" Nullable="false" />
     <Property Name="DistanciaNivel" Type="Double" Nullable="false" />
-    <NavigationProperty Name="Mueble" Relationship="CG2019Model.FK_LAVADERO_IDMUEBLE" FromRole="Lavadero" ToRole="Mueble" />
   </EntityType>
   <EntityType Name="Lino">
     <Key>
@@ -175,7 +174,6 @@
     <Property Name="Ruta_de_una_imagen" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
     <Property Name="TipoMueble" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Closet" Relationship="CG2019Model.FK_CLOSET_IDMUEBLE" FromRole="Mueble" ToRole="Closet" />
-    <NavigationProperty Name="Lavadero" Relationship="CG2019Model.FK_LAVADERO_IDMUEBLE" FromRole="Mueble" ToRole="Lavadero" />
     <NavigationProperty Name="Lino" Relationship="CG2019Model.FK_LINO_IDMUEBLE" FromRole="Mueble" ToRole="Lino" />
     <NavigationProperty Name="MuebleRopas" Relationship="CG2019Model.FK_MUEBLE_ROPAS_IDMUEBLE" FromRole="Mueble" ToRole="MuebleRopas" />
     <NavigationProperty Name="MuebleTV" Relationship="CG2019Model.FK_MUEBLETV_IDMUEBLE" FromRole="Mueble" ToRole="MuebleTV" />

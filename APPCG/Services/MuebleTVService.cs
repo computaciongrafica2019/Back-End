@@ -24,7 +24,19 @@ namespace APPCG.Services
 
         public bool CreateMuebleTV(MuebleTVViewModel model)
         {
+            Dictionary<string, string> myDict = new Dictionary<string, string>
+            {
+            { "C,3", (model.Alto*10).ToString() },
+            { "C,4", (model.Largo*10).ToString() },
+            { "C,5", (model.Ancho*10).ToString() },
+            { "C,7", model.Entrepaños.ToString() },
+            { "C,27", model.NumSeparaciones.ToString() },
+            };
 
+            String[] paths = new String[3];
+            paths[0] = @"\Planos.pdf";
+            paths[1] = @"\Excel.xlsx";
+            paths[2] = @"\3d.pdf";
             //Se crea el cliente
 
             bool respuesta = false;
@@ -65,7 +77,7 @@ namespace APPCG.Services
             muebleTV.Mueble = muebleTIPO;
 
             int idMuebleCreado = repository.CreateMuebleTV(muebleTV);
-            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado);
+            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado, muebleTIPO, myDict, paths);
             if (cotizacion != null)
                 respuesta = true;
 
