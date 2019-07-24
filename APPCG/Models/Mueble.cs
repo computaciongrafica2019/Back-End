@@ -14,6 +14,12 @@ namespace APPCG.Models
     
     public partial class Mueble
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Mueble()
+        {
+            this.Lavadero = new HashSet<Lavadero>();
+        }
+    
         public int IdMueble { get; set; }
         public string Descripcion { get; set; }
         public string Ruta_del_modelo_del_Excel { get; set; }
@@ -26,5 +32,7 @@ namespace APPCG.Models
         public virtual MuebleRopas MuebleRopas { get; set; }
         public virtual MuebleTV MuebleTV { get; set; }
         public virtual Vestier Vestier { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Lavadero> Lavadero { get; set; }
     }
 }

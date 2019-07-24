@@ -8,7 +8,6 @@
         <EntityTypeShape EntityType="CG2019Model.Cliente" Width="1.5" PointX="5.75" PointY="1" />
         <EntityTypeShape EntityType="CG2019Model.Closet" Width="1.5" PointX="3" PointY="1.875" />
         <EntityTypeShape EntityType="CG2019Model.Cotizacion" Width="1.5" PointX="8" PointY="1" />
-        <EntityTypeShape EntityType="CG2019Model.Lavadero" Width="1.5" PointX="3" PointY="10.125" />
         <EntityTypeShape EntityType="CG2019Model.Lino" Width="1.5" PointX="3" PointY="20.75" />
         <EntityTypeShape EntityType="CG2019Model.Mueble" Width="1.5" PointX="0.75" PointY="11.125" />
         <EntityTypeShape EntityType="CG2019Model.MuebleRopas" Width="1.5" PointX="3" PointY="17.25" />
@@ -16,7 +15,6 @@
         <EntityTypeShape EntityType="CG2019Model.Vestier" Width="1.5" PointX="3" PointY="14" />
         <AssociationConnector Association="CG2019Model.FK_COTIZACION_IDCLIENTE" />
         <AssociationConnector Association="CG2019Model.FK_CLOSET_IDMUEBLE" />
-        <AssociationConnector Association="CG2019Model.FK_LAVADERO_IDMUEBLE" />
         <AssociationConnector Association="CG2019Model.FK_LINO_IDMUEBLE" />
         <AssociationConnector Association="CG2019Model.FK_MUEBLE_ROPAS_IDMUEBLE" />
         <AssociationConnector Association="CG2019Model.FK_MUEBLETV_IDMUEBLE" />
@@ -27,6 +25,8 @@
         <EntityTypeShape EntityType="CG2019Model.AtributosMuebleRopas" Width="1.5" PointX="7.375" PointY="7.75" />
         <EntityTypeShape EntityType="CG2019Model.AtributosMuebleTV" Width="1.5" PointX="9.375" PointY="4.75" />
         <EntityTypeShape EntityType="CG2019Model.AtributosVestier" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CG2019Model.Lavadero" Width="1.5" PointX="3" PointY="25.125" />
+        <AssociationConnector Association="CG2019Model.FK_LAVADERO_IDMUEBLE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

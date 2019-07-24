@@ -114,7 +114,8 @@
           <Key>
             <PropertyRef Name="IdMueble" />
           </Key>
-          <Property Name="IdMueble" Type="int" Nullable="false" />
+          <Property Name="IdMueble" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTipoMueble" Type="int" Nullable="false" />
           <Property Name="Alto" Type="int" Nullable="false" />
           <Property Name="Largo" Type="int" Nullable="false" />
           <Property Name="Ancho" Type="int" Nullable="false" />
@@ -214,13 +215,13 @@
         </Association>
         <Association Name="FK_LAVADERO_IDMUEBLE">
           <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
-          <End Role="Lavadero" Type="Self.Lavadero" Multiplicity="0..1" />
+          <End Role="Lavadero" Type="Self.Lavadero" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Mueble">
               <PropertyRef Name="IdMueble" />
             </Principal>
             <Dependent Role="Lavadero">
-              <PropertyRef Name="IdMueble" />
+              <PropertyRef Name="IdTipoMueble" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -331,7 +332,6 @@
           <EntitySet Name="Cliente" EntityType="CG2019Model.Cliente" />
           <EntitySet Name="Closet" EntityType="CG2019Model.Closet" />
           <EntitySet Name="Cotizacion" EntityType="CG2019Model.Cotizacion" />
-          <EntitySet Name="Lavadero" EntityType="CG2019Model.Lavadero" />
           <EntitySet Name="Lino" EntityType="CG2019Model.Lino" />
           <EntitySet Name="Mueble" EntityType="CG2019Model.Mueble" />
           <EntitySet Name="MuebleRopas" EntityType="CG2019Model.MuebleRopas" />
@@ -344,10 +344,6 @@
           <AssociationSet Name="FK_CLOSET_IDMUEBLE" Association="CG2019Model.FK_CLOSET_IDMUEBLE">
             <End Role="Mueble" EntitySet="Mueble" />
             <End Role="Closet" EntitySet="Closet" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LAVADERO_IDMUEBLE" Association="CG2019Model.FK_LAVADERO_IDMUEBLE">
-            <End Role="Mueble" EntitySet="Mueble" />
-            <End Role="Lavadero" EntitySet="Lavadero" />
           </AssociationSet>
           <AssociationSet Name="FK_LINO_IDMUEBLE" Association="CG2019Model.FK_LINO_IDMUEBLE">
             <End Role="Mueble" EntitySet="Mueble" />
@@ -371,6 +367,11 @@
           <EntitySet Name="AtributosMuebleRopas" EntityType="CG2019Model.AtributosMuebleRopas" />
           <EntitySet Name="AtributosMuebleTV" EntityType="CG2019Model.AtributosMuebleTV" />
           <EntitySet Name="AtributosVestier" EntityType="CG2019Model.AtributosVestier" />
+          <EntitySet Name="Lavadero" EntityType="CG2019Model.Lavadero" />
+          <AssociationSet Name="FK_LAVADERO_IDMUEBLE" Association="CG2019Model.FK_LAVADERO_IDMUEBLE">
+            <End Role="Mueble" EntitySet="Mueble" />
+            <End Role="Lavadero" EntitySet="Lavadero" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="Buscar_Mueble_Con_IdCotizacion_Result">
           <Property Type="Int32" Name="IdOrden" Nullable="false" />
@@ -454,22 +455,6 @@
           <Property Name="IdMuebleTipo" Type="Int32" />
           <NavigationProperty Name="Cliente" Relationship="CG2019Model.FK_COTIZACION_IDCLIENTE" FromRole="Cotizacion" ToRole="Cliente" />
         </EntityType>
-        <EntityType Name="Lavadero">
-          <Key>
-            <PropertyRef Name="IdMueble" />
-          </Key>
-          <Property Name="IdMueble" Type="Int32" Nullable="false" />
-          <Property Name="Alto" Type="Int32" Nullable="false" />
-          <Property Name="Largo" Type="Int32" Nullable="false" />
-          <Property Name="Ancho" Type="Int32" Nullable="false" />
-          <Property Name="Niveles" Type="Int32" Nullable="false" />
-          <Property Name="Columnas" Type="Int32" Nullable="false" />
-          <Property Name="NumPuertas" Type="Int32" Nullable="false" />
-          <Property Name="Espesor" Type="Int32" Nullable="false" />
-          <Property Name="AltSobrePiso" Type="Int32" Nullable="false" />
-          <Property Name="DistanciaNivel" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Mueble" Relationship="CG2019Model.FK_LAVADERO_IDMUEBLE" FromRole="Lavadero" ToRole="Mueble" />
-        </EntityType>
         <EntityType Name="Lino">
           <Key>
             <PropertyRef Name="IdMueble" />
@@ -496,11 +481,11 @@
           <Property Name="Ruta_de_una_imagen" Type="String" MaxLength="320" FixedLength="false" Unicode="false" />
           <Property Name="TipoMueble" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Closet" Relationship="CG2019Model.FK_CLOSET_IDMUEBLE" FromRole="Mueble" ToRole="Closet" />
-          <NavigationProperty Name="Lavadero" Relationship="CG2019Model.FK_LAVADERO_IDMUEBLE" FromRole="Mueble" ToRole="Lavadero" />
           <NavigationProperty Name="Lino" Relationship="CG2019Model.FK_LINO_IDMUEBLE" FromRole="Mueble" ToRole="Lino" />
           <NavigationProperty Name="MuebleRopas" Relationship="CG2019Model.FK_MUEBLE_ROPAS_IDMUEBLE" FromRole="Mueble" ToRole="MuebleRopas" />
           <NavigationProperty Name="MuebleTV" Relationship="CG2019Model.FK_MUEBLETV_IDMUEBLE" FromRole="Mueble" ToRole="MuebleTV" />
           <NavigationProperty Name="Vestier" Relationship="CG2019Model.FK_VESTIER2_IDMUEBLE" FromRole="Mueble" ToRole="Vestier" />
+          <NavigationProperty Name="Lavadero" Relationship="CG2019Model.FK_LAVADERO_IDMUEBLE" FromRole="Mueble" ToRole="Lavadero" />
         </EntityType>
         <EntityType Name="MuebleRopas">
           <Key>
@@ -563,18 +548,6 @@
               <PropertyRef Name="IdMueble" />
             </Principal>
             <Dependent Role="Closet">
-              <PropertyRef Name="IdMueble" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LAVADERO_IDMUEBLE">
-          <End Type="CG2019Model.Mueble" Role="Mueble" Multiplicity="1" />
-          <End Type="CG2019Model.Lavadero" Role="Lavadero" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Mueble">
-              <PropertyRef Name="IdMueble" />
-            </Principal>
-            <Dependent Role="Lavadero">
               <PropertyRef Name="IdMueble" />
             </Dependent>
           </ReferentialConstraint>
@@ -687,6 +660,35 @@
           <Property Name="ValorMinimo" Type="Int32" />
           <Property Name="Valores" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Lavadero">
+          <Key>
+            <PropertyRef Name="IdMueble" />
+          </Key>
+          <Property Name="IdMueble" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTipoMueble" Type="Int32" Nullable="false" />
+          <Property Name="Alto" Type="Int32" Nullable="false" />
+          <Property Name="Largo" Type="Int32" Nullable="false" />
+          <Property Name="Ancho" Type="Int32" Nullable="false" />
+          <Property Name="Niveles" Type="Int32" Nullable="false" />
+          <Property Name="Columnas" Type="Int32" Nullable="false" />
+          <Property Name="NumPuertas" Type="Int32" Nullable="false" />
+          <Property Name="Espesor" Type="Int32" Nullable="false" />
+          <Property Name="AltSobrePiso" Type="Int32" Nullable="false" />
+          <Property Name="DistanciaNivel" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Mueble" Relationship="CG2019Model.FK_LAVADERO_IDMUEBLE" FromRole="Lavadero" ToRole="Mueble" />
+        </EntityType>
+        <Association Name="FK_LAVADERO_IDMUEBLE">
+          <End Type="CG2019Model.Mueble" Role="Mueble" Multiplicity="1" />
+          <End Type="CG2019Model.Lavadero" Role="Lavadero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mueble">
+              <PropertyRef Name="IdMueble" />
+            </Principal>
+            <Dependent Role="Lavadero">
+              <PropertyRef Name="IdTipoMueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -738,22 +740,6 @@
                 <ScalarProperty Name="RutaModelosPDF" ColumnName="RutaModelosPDF" />
                 <ScalarProperty Name="CotizacionPDF" ColumnName="CotizacionPDF" />
                 <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Lavadero">
-            <EntityTypeMapping TypeName="CG2019Model.Lavadero">
-              <MappingFragment StoreEntitySet="Lavadero">
-                <ScalarProperty Name="DistanciaNivel" ColumnName="DistanciaNivel" />
-                <ScalarProperty Name="AltSobrePiso" ColumnName="AltSobrePiso" />
-                <ScalarProperty Name="Espesor" ColumnName="Espesor" />
-                <ScalarProperty Name="NumPuertas" ColumnName="NumPuertas" />
-                <ScalarProperty Name="Columnas" ColumnName="Columnas" />
-                <ScalarProperty Name="Niveles" ColumnName="Niveles" />
-                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
-                <ScalarProperty Name="Largo" ColumnName="Largo" />
-                <ScalarProperty Name="Alto" ColumnName="Alto" />
-                <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -888,6 +874,23 @@
                 <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lavadero">
+            <EntityTypeMapping TypeName="CG2019Model.Lavadero">
+              <MappingFragment StoreEntitySet="Lavadero">
+                <ScalarProperty Name="DistanciaNivel" ColumnName="DistanciaNivel" />
+                <ScalarProperty Name="AltSobrePiso" ColumnName="AltSobrePiso" />
+                <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+                <ScalarProperty Name="NumPuertas" ColumnName="NumPuertas" />
+                <ScalarProperty Name="Columnas" ColumnName="Columnas" />
+                <ScalarProperty Name="Niveles" ColumnName="Niveles" />
+                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+                <ScalarProperty Name="Largo" ColumnName="Largo" />
+                <ScalarProperty Name="Alto" ColumnName="Alto" />
+                <ScalarProperty Name="IdTipoMueble" ColumnName="IdTipoMueble" />
+                <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

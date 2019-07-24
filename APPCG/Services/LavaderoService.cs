@@ -76,7 +76,7 @@ namespace APPCG.Services
             lavadero.Largo = model.Largo;
             lavadero.Niveles = model.Niveles;
             lavadero.NumPuertas = model.NumPuertas;
-            //lavadero.Mueble = muebleTIPO;
+            lavadero.Mueble = muebleTIPO;
 
 
 

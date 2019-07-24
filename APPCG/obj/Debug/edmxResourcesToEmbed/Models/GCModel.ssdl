@@ -109,7 +109,8 @@
     <Key>
       <PropertyRef Name="IdMueble" />
     </Key>
-    <Property Name="IdMueble" Type="int" Nullable="false" />
+    <Property Name="IdMueble" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTipoMueble" Type="int" Nullable="false" />
     <Property Name="Alto" Type="int" Nullable="false" />
     <Property Name="Largo" Type="int" Nullable="false" />
     <Property Name="Ancho" Type="int" Nullable="false" />
@@ -207,6 +208,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LAVADERO_IDMUEBLE">
+    <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
+    <End Role="Lavadero" Type="Self.Lavadero" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mueble">
+        <PropertyRef Name="IdMueble" />
+      </Principal>
+      <Dependent Role="Lavadero">
+        <PropertyRef Name="IdTipoMueble" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_LINO_IDMUEBLE">
     <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
     <End Role="Lino" Type="Self.Lino" Multiplicity="0..1" />
@@ -278,6 +291,10 @@
     <AssociationSet Name="FK_COTIZACION_IDCLIENTE" Association="Self.FK_COTIZACION_IDCLIENTE">
       <End Role="Cliente" EntitySet="Cliente" />
       <End Role="Cotizacion" EntitySet="Cotizacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LAVADERO_IDMUEBLE" Association="Self.FK_LAVADERO_IDMUEBLE">
+      <End Role="Mueble" EntitySet="Mueble" />
+      <End Role="Lavadero" EntitySet="Lavadero" />
     </AssociationSet>
     <AssociationSet Name="FK_LINO_IDMUEBLE" Association="Self.FK_LINO_IDMUEBLE">
       <End Role="Mueble" EntitySet="Mueble" />
