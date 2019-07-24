@@ -49,22 +49,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Lavadero">
-      <EntityTypeMapping TypeName="CG2019Model.Lavadero">
-        <MappingFragment StoreEntitySet="Lavadero">
-          <ScalarProperty Name="DistanciaNivel" ColumnName="DistanciaNivel" />
-          <ScalarProperty Name="AltSobrePiso" ColumnName="AltSobrePiso" />
-          <ScalarProperty Name="Espesor" ColumnName="Espesor" />
-          <ScalarProperty Name="NumPuertas" ColumnName="NumPuertas" />
-          <ScalarProperty Name="Columnas" ColumnName="Columnas" />
-          <ScalarProperty Name="Niveles" ColumnName="Niveles" />
-          <ScalarProperty Name="Ancho" ColumnName="Ancho" />
-          <ScalarProperty Name="Largo" ColumnName="Largo" />
-          <ScalarProperty Name="Alto" ColumnName="Alto" />
-          <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Lino">
       <EntityTypeMapping TypeName="CG2019Model.Lino">
         <MappingFragment StoreEntitySet="Lino">
@@ -196,6 +180,23 @@
           <ScalarProperty Name="ValorMaximo" ColumnName="ValorMaximo" />
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lavadero">
+      <EntityTypeMapping TypeName="CG2019Model.Lavadero">
+        <MappingFragment StoreEntitySet="Lavadero">
+          <ScalarProperty Name="DistanciaNivel" ColumnName="DistanciaNivel" />
+          <ScalarProperty Name="AltSobrePiso" ColumnName="AltSobrePiso" />
+          <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+          <ScalarProperty Name="NumPuertas" ColumnName="NumPuertas" />
+          <ScalarProperty Name="Columnas" ColumnName="Columnas" />
+          <ScalarProperty Name="Niveles" ColumnName="Niveles" />
+          <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+          <ScalarProperty Name="Largo" ColumnName="Largo" />
+          <ScalarProperty Name="Alto" ColumnName="Alto" />
+          <ScalarProperty Name="IdTipoMueble" ColumnName="IdTipoMueble" />
+          <ScalarProperty Name="IdMueble" ColumnName="IdMueble" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -168,3 +168,5 @@ C:\Users\hsmartineza\Documents\Back-End\APPCG\obj\Release\APPCG.csproj.CoreCompi
 C:\Users\hsmartineza\Documents\Back-End\APPCG\obj\Release\APPCG.csproj.CopyComplete
 C:\Users\hsmartineza\Documents\Back-End\APPCG\obj\Release\APPCG.dll
 C:\Users\hsmartineza\Documents\Back-End\APPCG\obj\Release\APPCG.pdb
+C:\Users\hsmartineza\Documents\Back-End\APPCG\obj\Release\APPCG.csprojAssemblyReference.cache
+C:\Users\hsmartineza\Documents\Back-End\APPCG\obj\Release\Interop.InventorApprentice.dll

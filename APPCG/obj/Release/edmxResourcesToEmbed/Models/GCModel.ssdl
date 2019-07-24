@@ -109,7 +109,8 @@
     <Key>
       <PropertyRef Name="IdMueble" />
     </Key>
-    <Property Name="IdMueble" Type="int" Nullable="false" />
+    <Property Name="IdMueble" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTipoMueble" Type="int" Nullable="false" />
     <Property Name="Alto" Type="int" Nullable="false" />
     <Property Name="Largo" Type="int" Nullable="false" />
     <Property Name="Ancho" Type="int" Nullable="false" />
@@ -209,13 +210,13 @@
   </Association>
   <Association Name="FK_LAVADERO_IDMUEBLE">
     <End Role="Mueble" Type="Self.Mueble" Multiplicity="1" />
-    <End Role="Lavadero" Type="Self.Lavadero" Multiplicity="0..1" />
+    <End Role="Lavadero" Type="Self.Lavadero" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Mueble">
         <PropertyRef Name="IdMueble" />
       </Principal>
       <Dependent Role="Lavadero">
-        <PropertyRef Name="IdMueble" />
+        <PropertyRef Name="IdTipoMueble" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

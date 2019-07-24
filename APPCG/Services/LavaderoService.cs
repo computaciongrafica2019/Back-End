@@ -28,7 +28,7 @@ namespace APPCG.Services
             {
             { "C,4", (model.Largo*10).ToString() },
             { "C,5", (model.Ancho*10).ToString() },
-            { "C,3", (model.Largo*10).ToString() },
+            { "C,3", (model.Alto*10).ToString() },
             { "C,7", model.Niveles.ToString() },
             { "C,27", model.Columnas.ToString() },
             };

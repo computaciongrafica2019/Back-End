@@ -79,10 +79,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/19/2019 06:32:04</publishTime>
     </File>
     <File Include="bin/APPCG.dll">
-      <publishTime>07/21/2019 01:38:51</publishTime>
+      <publishTime>07/24/2019 04:36:20</publishTime>
     </File>
     <File Include="bin/APPCG.pdb">
-      <publishTime>07/21/2019 01:38:51</publishTime>
+      <publishTime>07/24/2019 04:36:20</publishTime>
     </File>
     <File Include="bin/BouncyCastle.Crypto.dll">
       <publishTime>07/19/2019 06:32:51</publishTime>
@@ -466,7 +466,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/13/2019 04:08:26</publishTime>
     </File>
     <File Include="Models/GCModel.edmx.diagram">
-      <publishTime>07/21/2019 00:43:39</publishTime>
+      <publishTime>07/24/2019 03:38:00</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>07/19/2019 06:32:04</publishTime>
@@ -511,7 +511,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/19/2019 06:32:04</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/21/2019 01:38:51</publishTime>
+      <publishTime>07/24/2019 04:36:21</publishTime>
     </File>
   </ItemGroup>
 </Project>
