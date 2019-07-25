@@ -93,7 +93,7 @@ namespace APPCG.Services
         }
         
 
-        public Cotizacion CreateCotizacion(int idCliente, int idMueble, Mueble muebleT, Dictionary<string, string> myDict, String[] paths){
+        public Cotizacion CreateCotizacion(int idCliente, int idMueble, Mueble muebleT, Dictionary<string, string> myDict, String[] paths, int cQuantity, int cPrice){
             
             Cotizacion cotizacion = new Cotizacion();
 
@@ -134,7 +134,7 @@ namespace APPCG.Services
                 array[0] = string.Concat(cPath, @"\", idMueble.ToString(), paths[1]);
                 array[1] = string.Concat(cPath, @"\", idMueble.ToString(), paths[2]);
 
-                Mailer mailer = new Mailer("El resultado de la cotización del mueble deseado fue el siguiente:", cliente.CorreoElectronico, "Cotizacion", array);
+                Mailer mailer = new Mailer("Señor "+ cliente.Nombres+ " " +cliente.Apellidos +  " la cotizacion del mueble " + muebleT.TipoMueble + " dio como resultado el valor de: $"+ excel.ExcelCotizacion(cotizacion.CotizacionPDF, cQuantity, cPrice) + "." , cliente.CorreoElectronico, "Cotizacion "+ muebleT.TipoMueble , array);
                 mailer.createAndSendMail();
 
             }

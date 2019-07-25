@@ -81,7 +81,7 @@ namespace APPCG.Services
 
 
             int idMuebleCreado = repository.CreateLavadero(lavadero);
-            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado,muebleTIPO,myDict,paths);
+            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado,muebleTIPO,myDict,paths, 3, 4);
             if (cotizacion != null)
                 respuesta = true;
 

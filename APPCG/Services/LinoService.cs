@@ -71,7 +71,7 @@ namespace APPCG.Services
             lino.Mueble = mueble;
 
             int idMuebleCreado = repository.CreateLino(lino);
-            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado, mueble,myDict,paths);
+            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado);
             if (cotizacion != null)
                 answer = true;
 

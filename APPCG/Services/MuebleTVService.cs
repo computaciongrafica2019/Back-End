@@ -77,7 +77,7 @@ namespace APPCG.Services
             muebleTV.Mueble = muebleTIPO;
 
             int idMuebleCreado = repository.CreateMuebleTV(muebleTV);
-            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado, muebleTIPO, myDict, paths);
+            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado, muebleTIPO, myDict, paths, 4,5);
             if (cotizacion != null)
                 respuesta = true;
 

@@ -83,7 +83,7 @@ namespace APPCG.Services
 
             int idMuebleCreado = repository.CreateVestier(vestier);
 
-            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado, muebleTIPO, myDict, paths);
+            cotizacion = cotizacionService.CreateCotizacion(idCliente, idMuebleCreado, muebleTIPO, myDict, paths, 5 , 9);
             if (cotizacion != null)
                 respuesta = true;
 
