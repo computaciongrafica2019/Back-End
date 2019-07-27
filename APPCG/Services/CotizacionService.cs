@@ -134,7 +134,9 @@ namespace APPCG.Services
                 array[0] = string.Concat(cPath, @"\", idMueble.ToString(), paths[1]);
                 array[1] = string.Concat(cPath, @"\", idMueble.ToString(), paths[2]);
 
-                Mailer mailer = new Mailer("Señor "+ cliente.Nombres+ " " +cliente.Apellidos +  " la cotizacion del mueble " + muebleT.TipoMueble + " dio como resultado el valor de: $"+ excel.ExcelCotizacion(cotizacion.CotizacionPDF, cQuantity, cPrice) + "." , cliente.CorreoElectronico, "Cotizacion "+ muebleT.TipoMueble , array);
+                Mailer mailer = new Mailer("Señor "+ cliente.Nombres+ " " +cliente.Apellidos +  " la cotizacion del mueble " + muebleT.TipoMueble + " dio como resultado el valor de: $" + excel.ExcelCotizacion(cotizacion.CotizacionPDF, cQuantity, cPrice) + "." , cliente.CorreoElectronico, "Cotizacion "+ muebleT.TipoMueble , array);
+
+                
                 mailer.createAndSendMail();
 
             }
